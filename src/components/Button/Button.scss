@@ -1,0 +1,17 @@
+@import "../../App.scss";
+
+button {
+  background-color: $deep-purple;
+  border-radius: 2px;
+  border-color: $deep-purple;
+  border-style: solid;
+  padding: 6px ;
+
+}
+
+.button-text {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: $light-blue;
+}

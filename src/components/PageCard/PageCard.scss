@@ -1,0 +1,17 @@
+@import "../../App.scss";
+
+.pagecard {
+  background-color: $light-blue;
+  border-radius: 5px;
+  box-shadow: $shadow;
+  padding: 10px 20px 20px 20px;
+  min-height: 40vw;
+}
+
+.line {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #b8b8b8;
+}
+

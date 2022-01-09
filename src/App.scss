@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:wght@400;700&family=Saira+Extra+Condensed&display=swap");
+
+$deep-purple: #6a49f6;
+$shallow-purple: #b2a3f4;
+$light-blue: #f8feff;
+$error-red: #ea002b;
+
+$shadow: 3px 3px 3px 1px rgba(19, 18, 18, 0.5);
+
+
+body {
+  background-color: $shallow-purple;
+  margin: 0;
+}
+
+.flex-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+
+}
+
+
+
+h1 {
+  font-family: "Open Sans Condensed", bold, sans-serif;
+  font-size: 45px;
+}
+
+h2 {
+  font-family: "Open Sans Condensed", bold, sans-serif;
+  font-size: 22px;
+}
+
+h3 {
+  font-family: "Open Sans Condensed", bold, sans-serif;
+  font-size: 20px;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
