@@ -1,18 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:wght@400;700&family=Saira+Extra+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Economica:ital,wght@1,700&family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:wght@400;700&family=Saira+Extra+Condensed&display=swap");
 
-$deep-purple: #573cc5;
-$shallow-purple: #b2a3f4;
+$deep-purple: #6A49F6;
+$shallow-purple: #7d72ff;
 $light-blue: #f8feff;
-$error-red: #ea002b;
+$error-red: #ff260b;
 
 $shadow: 3px 3px 3px 1px rgba(19, 18, 18, 0.5);
 $shadow-thin: 1px 1px 3px 1px rgba(19, 18, 18, 0.5);
 
-
+* {
+  box-sizing: border-box;
+}
 
 body {
   background-color: $shallow-purple;
-  margin: 0;
+  margin: 0 0 5vh 0;
 }
 
 .flex-page {
@@ -20,10 +22,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-content: center;
-
 }
-
-
 
 h1 {
   font-family: "Open Sans Condensed", bold, sans-serif;
@@ -32,7 +31,7 @@ h1 {
 
 h2 {
   font-family: "Open Sans Condensed", bold, sans-serif;
-  font-size: 22px;
+  font-size: 30px;
 }
 
 h3 {
@@ -44,4 +43,3 @@ p {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
-

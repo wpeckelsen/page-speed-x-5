@@ -1,0 +1,18 @@
+@import "../../App.scss";
+
+.square {
+  background-color: $deep-purple;
+  border-radius: 5px;
+  border-color: $deep-purple;
+  border-style: solid;
+  padding: 6px;
+  box-shadow: $shadow;
+/*  width: 300px;
+  height: 300px;*/
+  text-align: center;
+}
+
+.page-title {
+ color: $light-blue;
+font-size: 60px;
+}

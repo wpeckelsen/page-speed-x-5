@@ -1,10 +1,10 @@
+/*
 @import "../../App.scss";
 
-.page-form {
+.domain-form {
+  grid-gap: 16px;
   display: grid;
-  column-gap: 15px;
-  row-gap: 15px;
-  grid-template-columns: 150px 200px;
+  grid-template-columns: 200px 400px;
   grid-template-rows: minmax(50px, auto);
 
   grid-template-areas:
@@ -19,6 +19,7 @@
 .grid-one {
   grid-area: a;
   align-self: center;
+  background-color: orange;
 
   display: flex;
   align-items: center;
@@ -28,15 +29,16 @@
 .grid-two {
   grid-area: b;
   align-self: center;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  background-color: green;
 }
 
 .grid-three {
   grid-area: c;
   align-self: center;
+  background-color: orange;
 
   display: flex;
   align-items: center;
@@ -52,8 +54,11 @@
   justify-content: flex-start;
 }
 
+
+
 .grid-five {
   grid-area: e;
+  background-color: orange;
   align-self: center;
 
   display: flex;
@@ -61,10 +66,12 @@
   justify-content: flex-end;
 }
 
+
+
+
 .grid-six {
   grid-area: f;
   align-self: center;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -73,25 +80,26 @@
 .grid-seven {
   grid-area: g;
   align-self: center;
-
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
+
+
+
 .grid-eight {
   grid-area: h;
   align-self: center;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
+
 .grid-nine {
   grid-area: i;
   align-self: center;
-
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -100,7 +108,6 @@
 .grid-ten {
   grid-area: j;
   align-self: center;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -109,13 +116,13 @@
 .grid-eleven {
   grid-area: k;
   align-self: center;
-
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  background-color: yellow;
 }
 
-.page-form input {
+form input {
   background-color: $light-blue;
   border-radius: 2px;
   border-color: $light-blue;
@@ -123,4 +130,4 @@
   padding: 6px;
   box-shadow: $shadow-thin;
 }
-
+*/

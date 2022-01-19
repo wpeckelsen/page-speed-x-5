@@ -6,7 +6,8 @@
   box-shadow: $shadow;
   padding: 10px 20px 20px 20px;
   min-height: 40vw;
-  min-width: 40vw;
+  width: 635px;
+  margin-bottom: 20px;
 }
 
 .line {
@@ -16,3 +17,8 @@
   border-color: #b8b8b8;
 }
 
+.content {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}

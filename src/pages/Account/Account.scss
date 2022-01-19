@@ -1,0 +1,30 @@
+@import "../../App.scss";
+
+
+
+.account {
+  width: 100%;
+}
+
+.account > div {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.account-avatar{
+  height: 100px;
+  width: 100px;
+  background-color: $error-red;
+  border-radius: 50%;
+}
+
+.account-divider{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.username-text{
+  text-align: center;
+}

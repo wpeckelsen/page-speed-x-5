@@ -1,0 +1,48 @@
+@import "../../App.scss";
+
+
+.location-explained {
+  background-color: white;
+  width: 100%;
+  box-shadow: $shadow-thin;
+  padding: 10px;}
+
+.location {
+  width: 100%;
+}
+
+.location>div {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+.server{
+
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 50px;
+
+}
+
+
+.location-label{
+display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 20px;
+}
+
+
+
+
+.result-squares{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;;
+  align-items: flex-start;
+  column-gap: 20px;
+}
