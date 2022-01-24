@@ -1,10 +1,11 @@
 import React from "react";
+import "../../App.scss";
 import "./PageCard.scss";
 
-function PageCard({ title, subtitle, content }) {
+function PageCardWide({ title, subtitle, content }) {
   return (
     <div className="flex-page">
-      <div className="pagecard">
+      <div className="pagecard-wide" >
         <h2>{title}</h2>
         <p>{subtitle}</p>
         <hr className="line" />
@@ -16,4 +17,4 @@ function PageCard({ title, subtitle, content }) {
   );
 }
 
-export default PageCard;
+export default PageCardWide;

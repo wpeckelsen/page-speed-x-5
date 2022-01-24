@@ -2,10 +2,10 @@ import React from 'react';
 import "./BreadCrumbs.scss"
 
 
-function BreadCrumbs({breadCrumbs}) {
+function BreadCrumbs() {
     return (
         <div className="BreadCrumbs">
-            <p>Page > This Page </p>
+            <p></p>
         </div>
     );
 }

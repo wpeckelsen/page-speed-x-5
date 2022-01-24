@@ -1,14 +1,42 @@
-@import "../../App.scss";
+@import "../../App";
 
-.pagecard {
+.pagecard-wide {
+  width: $wide;
+
   background-color: $light-blue;
   border-radius: 5px;
   box-shadow: $shadow;
   padding: 10px 20px 20px 20px;
   min-height: 40vw;
-  width: 635px;
   margin-bottom: 20px;
+  margin-top: 100px;
 }
+
+.pagecard-narrow {
+  width: $narrow;
+
+  background-color: $light-blue;
+  border-radius: 5px;
+  box-shadow: $shadow;
+  padding: 10px 20px 20px 20px;
+  min-height: 40vw;
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+
+
+
+.flex-page{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+
+
+}
+
+
 
 .line {
   border-width: 1px;

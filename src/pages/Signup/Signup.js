@@ -1,10 +1,12 @@
 import React from "react";
-import PageCard from "../../components/PageCard/PageCard";
+
 import Button from "../../components/Button/Button";
+import {Link} from "react-router-dom";
+import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
 
 function Signup() {
   return (
-    <PageCard
+      <PageCardNarrow
       title="Sign Up"
       subtitle="Fill in your e-mail, pick a username and enter a strong password"
       content={
@@ -18,7 +20,7 @@ function Signup() {
             <div className="grid-two">
               <input type="email" placeholder="your@email.com" id="one" />
             </div>
-            {/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/}
+
             <div className="grid-three">
               <label htmlFor="two">
                 <p>Username</p>
@@ -42,6 +44,16 @@ function Signup() {
               <Button content="Sign Up" />
             </div>
           </form>
+
+          <div className="login-text">
+            <p>
+              <Link to="/">I forgot my username/password</Link>
+            </p>
+            <p>
+              Already have an account <Link to="/login">Log in</Link>
+            </p>
+          </div>
+
         </>
       }
     />

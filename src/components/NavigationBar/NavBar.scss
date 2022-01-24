@@ -5,7 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: $light-blue;
-    padding: 0 25px;
+    padding: 0 20px;
     box-shadow: $shadow;
 }
 
@@ -16,4 +16,15 @@
     flex-flow: row wrap;
     justify-content: space-between;
     gap: 50px;
+    ;
+}
+
+.current-link {
+   border-bottom: solid 4px $deep-purple;
+
+}
+
+
+b {
+    color: black
 }

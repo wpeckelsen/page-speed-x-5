@@ -1,14 +1,15 @@
 import React from "react";
-import PageCard from "../../components/PageCard/PageCard";
+
 import Button from "../../components/Button/Button";
 import "./InputDomain.scss"
 import "/Users/wessel/WebstormProjects/pagespeedx5/src/components/Form/Form.scss"
+import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
 
 
 
 function InputDomain() {
   return (
-    <PageCard
+    <PageCardNarrow
       title="Speed Test five domains"
       subtitle="fill in five domains and check their speed results"
       content={<>

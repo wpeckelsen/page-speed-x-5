@@ -1,12 +1,13 @@
 import React from "react";
-import PageCard from "../../components/PageCard/PageCard";
+import PageCardWide from "../../components/PageCard/PageCardWide";
 import Button from "../../components/Button/Button";
 import "./Account.scss";
 import TextCard from "../../components/TextCard/TextCard";
+import { Link } from "react-router-dom";
 
 function Account(props) {
   return (
-    <PageCard
+    <PageCardWide
       title="My account"
       subtitle="Hello {Username}"
       content={
@@ -21,7 +22,13 @@ function Account(props) {
                 </div>
 
                 <div className="grid-two">
-                  <input type="text" value="jimmy" id="one" readOnly />
+                  <input
+                    type="text"
+                    value="jimmy"
+                    id="one"
+                    className="account-label"
+                    readOnly
+                  />
                 </div>
 
                 <div className="grid-three">
@@ -31,7 +38,12 @@ function Account(props) {
                 </div>
 
                 <div className="grid-four">
-                  <input type="text" value="password" id="two" />
+                  <input
+                    type="text"
+                    value="password"
+                    id="two"
+                    className="account-label"
+                  />
                 </div>
 
                 <div className="grid-five">
@@ -41,7 +53,13 @@ function Account(props) {
                 </div>
 
                 <div className="grid-six">
-                  <input type="text" value="email" id="three" readOnly />
+                  <input
+                    type="text"
+                    value="email"
+                    id="three"
+                    className="account-label"
+                    readOnly
+                  />
                 </div>
 
                 <div className="grid-eight">
@@ -55,14 +73,6 @@ function Account(props) {
               </div>
             </div>
 
-
-
-
-
-
-
-
-
             <div>
               <h2>Username's Features</h2>
               <p>Jump to a feature of Page Speed x 5</p>
@@ -71,17 +81,29 @@ function Account(props) {
 
             <TextCard
               title="Run a test on 5 domains simultaneously"
-              content={<p>Speed test 5 domains</p>}
+              content={
+                <p>
+                  <Link to="/input-domain">Speed test 5 domains</Link>
+                </p>
+              }
             />
 
             <TextCard
               title="See the influence geography has on your scores"
-              content={<p>The Location Effect</p>}
+              content={
+                <p>
+                  <Link to="/location">The Location Effect</Link>
+                </p>
+              }
             />
 
             <TextCard
               title="Check how you can improve scores"
-              content={<p>Improvements</p>}
+              content={
+                <p>
+                  <Link to="/improvements">Improvements</Link>
+                </p>
+              }
             />
           </div>
         </>

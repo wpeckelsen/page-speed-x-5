@@ -1,7 +1,5 @@
 @import "../../App.scss";
 
-
-
 .account {
   width: 100%;
 }
@@ -11,20 +9,20 @@
   margin-bottom: 40px;
 }
 
-.account-avatar{
+.account-avatar {
   height: 100px;
   width: 100px;
   background-color: $error-red;
   border-radius: 50%;
 }
 
-.account-divider{
+.account-divider {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
-.username-text{
+.username-text {
   text-align: center;
 }

@@ -5,6 +5,9 @@ $shallow-purple: #7d72ff;
 $light-blue: #f8feff;
 $error-red: #ff260b;
 
+$narrow: 635px;
+$wide: 985px;
+
 $shadow: 3px 3px 3px 1px rgba(19, 18, 18, 0.5);
 $shadow-thin: 1px 1px 3px 1px rgba(19, 18, 18, 0.5);
 
@@ -17,12 +20,7 @@ body {
   margin: 0 0 5vh 0;
 }
 
-.flex-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-}
+
 
 h1 {
   font-family: "Open Sans Condensed", bold, sans-serif;

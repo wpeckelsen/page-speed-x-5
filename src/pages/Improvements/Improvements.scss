@@ -1,0 +1,55 @@
+@import "../../App.scss";
+
+.improvements-label{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 20px;
+
+
+}
+
+
+.improvements-label input:checked{
+  background-color: yellow;
+}
+
+
+.improvements-divider{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  column-gap: 20px;
+}
+
+
+
+.wordpress-label{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.wordpress-divider{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  column-gap: 20px;
+}
+
+
+
+
+
+.improvements>div {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+

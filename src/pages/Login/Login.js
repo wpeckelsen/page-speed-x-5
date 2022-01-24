@@ -1,14 +1,15 @@
 import React from "react";
-import PageCard from "../../components/PageCard/PageCard";
+import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import Button from "../../components/Button/Button";
 import "./Login.scss";
 import Form from "../../components/Form/Form";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <>
-      <PageCard
+      <PageCardNarrow
         title="Login"
         subtitle="fill in your username and password to continue"
         content={
@@ -37,6 +38,15 @@ function Login() {
                 <Button content="Log in" />
               </div>
             </form>
+
+            <div className="login-text">
+              <p>
+                <Link to="/">I forgot my username/password</Link>
+              </p>
+              <p>
+                Don't have an account yet? <Link to="/signup">Sign up</Link>
+              </p>
+            </div>
           </>
         }
       />
@@ -46,7 +56,7 @@ function Login() {
 
 export default Login;
 
-/*<PageCard
+/*<PageCardWide
             title="Log in"
             subtitle="Fill in your username and password to continue"
             content={<>
