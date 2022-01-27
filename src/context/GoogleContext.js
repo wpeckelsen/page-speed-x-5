@@ -7,6 +7,7 @@ function GoogleContextProvider({ children }) {
 
   const keyAPI = "xxx";
   const [score, setScore] = useState(0);
+  const [input, setInput] = useState('');
 
   async function GoogleFetch() {
     try {

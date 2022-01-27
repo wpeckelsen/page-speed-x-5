@@ -24,19 +24,12 @@
   margin-top: 100px;
 }
 
-
-
-.flex-page{
+.flex-page {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
-
-
 }
-
-
 
 .line {
   border-width: 1px;
@@ -48,5 +41,4 @@
 .content {
   display: flex;
   justify-content: flex-start;
-  flex-wrap: wrap;
 }

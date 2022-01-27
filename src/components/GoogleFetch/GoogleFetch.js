@@ -7,7 +7,7 @@ async function GoogleFetch() {
 
     const testLink = "https://www.bol.com/nl/nl/";
     const [score, setScore] = useState(0)
-    const apiKey = "AIzaSyCJbHVWL-S2NdiSpFqROaLvjxSPvlMh7kE";
+    const apiKey = "xxx";
     try {
         const result = await axios.get(
             `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${input}&key=${apiKey}`

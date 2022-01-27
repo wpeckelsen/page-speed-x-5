@@ -7,13 +7,13 @@ import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
 import { GoogleContext } from "../../context/GoogleContext";
 import TextCard from "../../components/TextCard/TextCard";
 
-function Input({ setInputHandler }) {
-  const { GoogleFetch } = useContext(GoogleContext);
+function Input(/*{ setInputHandler }*/) {
+  // const { GoogleFetch } = useContext(GoogleContext);
 
   function formHandler(e) {
     e.preventDefault();
     console.log("form handler klik");
-    GoogleFetch();
+    // GoogleFetch();
   }
 
   const [input, setInput] = useState("");
@@ -24,7 +24,7 @@ function Input({ setInputHandler }) {
       subtitle="fill in five domains and check their speed results"
       content={
         <>
-          <form className="page-form" onSubmit={formHandler}>
+          <form className="page-form" >
             <div className="grid-one">
               <label htmlFor="domain-one">
                 <p>1. Domain Name</p>
@@ -42,7 +42,7 @@ function Input({ setInputHandler }) {
               />
             </div>
 
-            {/* <div className="grid-three">
+             <div className="grid-three">
               <label htmlFor="domain-two">
                 <p>2. Domain Name</p>
               </label>
@@ -104,12 +104,21 @@ function Input({ setInputHandler }) {
                   setInput(e.target.value);
                 }}
               />
-            </div>*/}
+            </div>
 
             <div className="grid-eleven">
               <Button type="submit" content="Run Test" click={formHandler} />
             </div>
+
+
+
           </form>
+          <div>
+            <TextCard
+                content="error"
+            />
+          </div>
+
         </>
       }
     />
