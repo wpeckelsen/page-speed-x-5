@@ -21,6 +21,13 @@ button {
 button:active{
   box-shadow: none;
   transform: translateY(1px) translateX(1px);
-
 }
 
+button:hover{
+  background-color: #4e04ce;
+}
+
+
+.hidden{
+  visibility: hidden;
+}

@@ -32,6 +32,16 @@ function NavBar() {
             <b>My Account</b>
           </p>
         </NavLink>
+
+
+        <NavLink to="/" exact activeClassName="current-link">
+          <p>
+            <b>Log Out</b>
+          </p>
+        </NavLink>
+
+
+
       </div>
     </div>
   );

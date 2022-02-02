@@ -1,22 +1,31 @@
 @import "../../App.scss";
+.page-form input {
+  background-color: $light-blue;
+  border-radius: 2px;
+  border-color: $light-blue;
+  border-style: solid;
+  box-shadow: $shadow-thin;
+
+  padding: 6px;
+}
 
 .page-form {
   display: grid;
   column-gap: 15px;
   row-gap: 15px;
-  grid-template-columns: 150px 200px;
+
   grid-template-rows: minmax(50px, auto);
 
   grid-template-areas:
-    "a b"
-    "c d"
-    "e f"
-    "g h"
-    "i j"
-    ". k";
+"a b 1"
+"c d 2"
+"e f 3"
+"g h 4"
+"i j 5"
+". k .";
 }
 
-.grid-one {
+.grid-a {
   grid-area: a;
   align-self: center;
 
@@ -25,7 +34,7 @@
   justify-content: flex-end;
 }
 
-.grid-two {
+.grid-b {
   grid-area: b;
   align-self: center;
 
@@ -34,7 +43,7 @@
   justify-content: flex-start;
 }
 
-.grid-three {
+.grid-c {
   grid-area: c;
   align-self: center;
 
@@ -43,7 +52,7 @@
   justify-content: flex-end;
 }
 
-.grid-four {
+.grid-d {
   grid-area: d;
   align-self: center;
 
@@ -52,7 +61,7 @@
   justify-content: flex-start;
 }
 
-.grid-five {
+.grid-e {
   grid-area: e;
   align-self: center;
 
@@ -61,7 +70,7 @@
   justify-content: flex-end;
 }
 
-.grid-six {
+.grid-f {
   grid-area: f;
   align-self: center;
 
@@ -70,7 +79,7 @@
   justify-content: flex-start;
 }
 
-.grid-seven {
+.grid-g {
   grid-area: g;
   align-self: center;
 
@@ -79,7 +88,7 @@
   justify-content: flex-end;
 }
 
-.grid-eight {
+.grid-h {
   grid-area: h;
   align-self: center;
 
@@ -88,7 +97,7 @@
   justify-content: flex-start;
 }
 
-.grid-nine {
+.grid-i {
   grid-area: i;
   align-self: center;
 
@@ -97,7 +106,7 @@
   justify-content: flex-end;
 }
 
-.grid-ten {
+.grid-j {
   grid-area: j;
   align-self: center;
 
@@ -106,7 +115,7 @@
   justify-content: flex-start;
 }
 
-.grid-eleven {
+.grid-k {
   grid-area: k;
   align-self: center;
 
@@ -115,12 +124,4 @@
   justify-content: flex-start;
 }
 
-.page-form input {
-  background-color: $light-blue;
-  border-radius: 2px;
-  border-color: $light-blue;
-  border-style: solid;
-  padding: 6px;
-  box-shadow: $shadow-thin;
-}
 

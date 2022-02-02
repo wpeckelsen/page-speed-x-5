@@ -1,13 +1,13 @@
 import React from 'react';
-import "./TextCard.scss"
+import "./ErrorCard.scss"
 
-function TextCard({title, content}) {
+function ErrorCard({title, content}) {
     return (
-        <div className="textcard">
+        <div className="errorcard">
             <h3>{title}</h3>
             <span>{content}</span>
         </div>
     );
 }
 
-export default TextCard;
+export default ErrorCard;

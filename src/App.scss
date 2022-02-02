@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Economica:ital,wght@1,700&family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:wght@400;700&family=Saira+Extra+Condensed&display=swap");
 
-$deep-purple: #6A49F6;
+$deep-purple: #6214fd;
 $shallow-purple: #7d72ff;
 $light-blue: #f8feff;
-$error-red: #ff260b;
+$error-red: #ff270b;
 
 $narrow: 635px;
 $wide: 985px;
@@ -13,6 +13,8 @@ $shadow-thin: 1px 1px 3px 1px rgba(19, 18, 18, 0.5);
 
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {

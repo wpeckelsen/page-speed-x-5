@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import Button from "../../components/Button/Button";
 import "./Login.scss";
-import Form from "../../components/Form/Form";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { AuthContext } from "../../context/AuthContext";
 
 function Login() {
+  const { login } = useContext(AuthContext);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function handleLogin() {
+    try {
+      const result = await axios.post(
+        '"https://frontend-educational-backend.herokuapp.com/api/auth/signin',
+        {
+          username: username,
+          password: password,
+        }
+      );
+    } catch (e) {}
+  }
+
   return (
     <>
       <PageCardNarrow
@@ -15,27 +32,45 @@ function Login() {
         content={
           <>
             <form className="page-form">
-              <div className="grid-one">
+              <div className="grid-a">
                 <label htmlFor="one">
                   <p>Username</p>
                 </label>
               </div>
-              <div className="grid-two">
-                <input type="text" placeholder="username" id="one" />
+              <div className="grid-b">
+                <input
+                  type="text"
+                  placeholder="username"
+                  id="one"
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                  required
+                />
               </div>
 
-              <div className="grid-three">
+              <div className="grid-c">
                 <label htmlFor="two">
                   <p>Password</p>
                 </label>
               </div>
 
-              <div className="grid-four">
-                <input type="password" placeholder="password" id="two" />
+              <div className="grid-d">
+                <input
+                  type="password"
+                  placeholder="password"
+                  id="two"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  required
+                />
               </div>
 
-              <div className="grid-six">
-                <Button content="Log in" />
+              <div className="grid-f">
+                <Button content="Log in" type="button" />
               </div>
             </form>
 
@@ -55,39 +90,3 @@ function Login() {
 }
 
 export default Login;
-
-/*<PageCardWide
-            title="Log in"
-            subtitle="Fill in your username and password to continue"
-            content={<>
-                <form className="login-form">
-                    <div className="grid-one">
-                        <label htmlFor="email">
-                            <p>Email</p>
-                        </label>
-                    </div>
-
-                    <div className="grid-two">
-                        <input type="email" placeholder="email" />
-                    </div>
-
-                    <div className="grid-three">
-                        <label htmlFor="Password">
-                            <p>Password</p>
-                        </label>
-                    </div>
-
-                    <div className="grid-four">
-                        <input type="password" placeholder="••••••" />
-                    </div>
-
-                    <div className="grid-five">
-                        <Button
-                            content="Login"
-                        />
-                    </div>
-                </form>
-
-
-            </>}
-        />*/

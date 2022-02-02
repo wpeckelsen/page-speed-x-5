@@ -4,10 +4,11 @@ import Button from "../../components/Button/Button";
 import "./Account.scss";
 import TextCard from "../../components/TextCard/TextCard";
 import { Link } from "react-router-dom";
+import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
 
 function Account(props) {
   return (
-    <PageCardWide
+    <PageCardNarrow
       title="My account"
       subtitle="Hello {Username}"
       content={
@@ -15,13 +16,13 @@ function Account(props) {
           <div className="account">
             <div className="account-divider">
               <div className="page-form">
-                <div className="grid-one">
+                <div className="grid-a">
                   <label htmlFor="one">
                     <p>Username</p>
                   </label>
                 </div>
 
-                <div className="grid-two">
+                <div className="grid-b">
                   <input
                     type="text"
                     value="jimmy"
@@ -31,13 +32,13 @@ function Account(props) {
                   />
                 </div>
 
-                <div className="grid-three">
+                <div className="grid-c">
                   <label htmlFor="two">
                     <p>Password</p>
                   </label>
                 </div>
 
-                <div className="grid-four">
+                <div className="grid-d">
                   <input
                     type="text"
                     value="password"
@@ -46,13 +47,13 @@ function Account(props) {
                   />
                 </div>
 
-                <div className="grid-five">
+                <div className="grid-e">
                   <label htmlFor="three">
                     <p>E-mail</p>
                   </label>
                 </div>
 
-                <div className="grid-six">
+                <div className="grid-f">
                   <input
                     type="text"
                     value="email"
@@ -62,7 +63,7 @@ function Account(props) {
                   />
                 </div>
 
-                <div className="grid-eight">
+                <div className="grid-h">
                   <Button content="Log out" />
                 </div>
               </div>

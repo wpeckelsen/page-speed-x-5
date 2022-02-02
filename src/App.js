@@ -34,27 +34,26 @@ function App() {
         </Route>
 
         <Route path="/account">
-            {isAuth ? <Account /> : <Redirect to="/login" />}
-
+            {/*{isAuth ? <Account /> : <Redirect to="/login" />}*/}
+          <Account />
         </Route>
 
         <Route path="/improvements">
-          {isAuth ? <Improvements /> : <Redirect to="/login" />}
-
+          {/*{isAuth ? <Improvements /> : <Redirect to="/login" />}*/}
+          <Improvements />
         </Route>
 
         <Route path="/input">
-        {/*{isAuth ?  : <Redirect to="/login" />}*/}
+        {/*{isAuth ? <Input /> : <Redirect to="/login" />}*/}
           <Input />
         </Route>
 
         <Route path="/location">
-          {isAuth ? <Location /> : <Redirect to="/login" />}
-
+          {/*{isAuth ? <Location /> : <Redirect to="/login" />}*/}
+          <Location />
         </Route>
 
         <Route path="/login">
-          {isAuth ? <Improvements /> : <Redirect to="/login" />}
           <Login />
         </Route>
 
@@ -63,9 +62,8 @@ function App() {
         </Route>
 
         <Route path="/results">
-          {isAuth ? <Improvements /> : <Redirect to="/login" />}
-          <Results />
-
+          {/*{isAuth ? <Results/> : <Redirect to="/login" />}*/}
+          <Results/>
         </Route>
 
         <Route path="/signup">

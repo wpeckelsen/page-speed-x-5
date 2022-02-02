@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import "../../App.scss";
 import "./Chart.scss";
 
-function ChartComponent() {
+function ChartComponent({ chartScore1, chartScore2, chartScore3, chartScore4, chartScore5 }) {
+
+
+
+
+
   const options = {
     fontName: "Open Sans",
     fontSize: 16,
@@ -16,30 +21,32 @@ function ChartComponent() {
       minValue: 0,
       maxValue: 100,
     },
-    vAxis: {title: "URLs"},
+    vAxis: { title: "Domain names" },
   };
-
-
-
-
 
   const data = [
     ["Speed Score", "Speed Score", { role: "style" }],
-    ["Domain 1", 79, "#EF6461"],
-    ["Domain 2", 78, "#3F826D"],
-    ["Domain 3", 91, "#2e2f42"],
-    ["Domain 4", 67, "#ecc453"],
-    ["Domain 5", 89, "#604791"],
+    ["Domain 1", chartScore1, "#EF6461"],
+    ["Domain 2", chartScore2, "#3F826D"],
+    ["Domain 3", chartScore3, "#2e2f42"],
+    ["Domain 4", chartScore4, "#ecc453"],
+    ["Domain 5", chartScore5, "#604791"],
   ];
 
+
+
+
+
   return (
-    <Chart
-      chartType="BarChart"
-      width="100%"
-      height="500px"
-      data={data}
-      options={options}
-    />
+      <Chart
+          chartType="BarChart"
+          width="100%"
+          height="500px"
+          data={data}
+          options={options}
+
+      />
+
   );
 }
 

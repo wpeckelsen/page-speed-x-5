@@ -3,9 +3,9 @@ import PageCardWide from "../../components/PageCard/PageCardWide";
 import "./Improvements.scss";
 import TextCard from "../../components/TextCard/TextCard";
 import Square from "../../components/Square/Square";
-import {Link} from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
-function Improvements(props) {
+function Improvements() {
   return (
     <PageCardWide
       title="Improvements"
@@ -25,7 +25,7 @@ function Improvements(props) {
                   <h3>WordPress</h3>
                   <p>
                     Wait! Are you using a Wordpress website? Check additional
-                      improvements <a href="#wordpress">here</a>.
+                      improvements <Link smooth to="/improvements#wordpress">here</Link>.
                   </p>
                 </>
               }

@@ -15,21 +15,17 @@ function Home() {
   const history = useHistory();
 
   function handleClick() {
-      {isAuth? history.push("/input-domain") : history.push("/login")}
+    {
+      isAuth ? history.push("/input-domain") : history.push("/login");
+    }
   }
 
   return (
     <>
       <header style={{ backgroundImage: `url(${background})` }}>
-        <Square content={<i>PAGE SPEED X 5 </i>} />
+        <Square content={<i>PAGE SPEED x 5</i>} />
 
-        <Button
-          content={<h3>Run The Test</h3>}
-          click={() => {
-            handleClick();
-          }}
-        />
-
+        <Button content={<h3>Run The Test</h3>} click={handleClick} />
       </header>
 
       <div className="blog-section">

@@ -9,6 +9,8 @@ function PageCardWide({ title, subtitle, content }) {
                 <h2>{title}</h2>
                 <p>{subtitle}</p>
                 <hr className="line" />
+                <div className="error">
+                </div>
                 <div className="content">
                     {content}
                 </div>
