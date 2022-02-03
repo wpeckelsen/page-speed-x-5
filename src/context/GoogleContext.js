@@ -22,6 +22,12 @@ function GoogleContextProvider({ children }) {
     }
   }
 
+
+
+
+
+
+
   const contextData = {
     GoogleFetch,
     score,

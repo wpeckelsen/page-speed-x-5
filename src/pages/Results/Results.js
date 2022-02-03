@@ -139,7 +139,14 @@ function Results({
 
       {improvements ? (
         <span id="improvements">
-          <Improvements />
+          <Improvements
+              improvementsScore1={inputScore1}
+              improvementsScore2={inputScore2}
+              improvementsScore3={inputScore3}
+              improvementsScore4={inputScore4}
+              improvementsScore5={inputScore5}
+
+          />
         </span>
       ) : (
         ""

@@ -61,7 +61,7 @@ function Input() {
   const [input5, setInput5] = useState("");
 
   //API request state
-  const APIkey = "8==>";
+  const APIkey = "x";
   const [score1, setScore1] = useState(0);
   const [score2, setScore2] = useState(0);
   const [score3, setScore3] = useState(0);
@@ -299,7 +299,7 @@ function Input() {
         }
       />
 
-      {score1 > 0 && (
+      {input1 || score2 || score3 || score4 || score5  > 0 ? (
         <span id="#results">
           <Results
             input1={input1}
@@ -316,7 +316,9 @@ function Input() {
             googleFetchersPasser={googleFetchers}
           />
         </span>
-      )}
+
+
+      ) : ''}
     </>
   );
 }
