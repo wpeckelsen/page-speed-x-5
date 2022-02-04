@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import PageCardWide from "../../components/PageCard/PageCardWide";
 import "./Improvements.scss";
 import TextCard from "../../components/TextCard/TextCard";
-import Square from "../../components/Square/Square";
 import { HashLink as Link } from "react-router-hash-link";
-import ChartComponent from "../../components/Chart/Chart";
 import ChartVertical from "../../components/Chart/ChartVertical";
 
 function Improvements({
@@ -20,6 +18,7 @@ function Improvements({
   const [score4, setScore4] = useState(improvementsScore4);
   const [score5, setScore5] = useState(improvementsScore5);
 
+  //general checks
   const [check1, toggleCheck1] = useState(false);
   const [check2, toggleCheck2] = useState(false);
   const [check3, toggleCheck3] = useState(false);
@@ -37,6 +36,7 @@ function Improvements({
     setScore2(score2 + 1);
     setScore3(score3 + 2);
     setScore4(score4 + 3);
+    setScore5(score4 + 3);
 
     toggleCheck1(true);
     if (check1 === true) {
@@ -44,6 +44,7 @@ function Improvements({
       setScore2(score2 - 1);
       setScore3(score3 - 2);
       setScore4(score4 - 3);
+      setScore5(score4 - 3);
 
       toggleCheck1(false);
     }
@@ -54,13 +55,16 @@ function Improvements({
     setScore2(score2 + 3);
     setScore3(score3 + 4);
     setScore4(score4 + 4);
+    setScore5(score4 + 3);
+
     toggleCheck2(true);
 
     if (check2 === true) {
       setScore1(score1 - 4);
-      setScore1(score1 - 3);
-      setScore1(score1 - 4);
-      setScore1(score1 - 4);
+      setScore2(score1 - 3);
+      setScore3(score1 - 4);
+      setScore4(score1 - 4);
+      setScore5(score1 - 3);
 
       toggleCheck2(false);
     }
@@ -71,63 +75,106 @@ function Improvements({
     setScore2(score2 + 4);
     setScore3(score3 + 3);
     setScore4(score4 + 2);
+    setScore5(score4 + 3);
+
     toggleCheck3(true);
     if (check3 === true) {
       setScore1(score1 - 2);
       setScore1(score1 - 4);
       setScore1(score1 - 3);
       setScore1(score1 - 2);
+      setScore5(score1 - 3);
 
       toggleCheck3(false);
     }
   }
 
   function cdnImprover() {
-    setScore1(score1 + 2);
-    setScore2(score1 + 2);
-    setScore3(score1 + 2);
-    setScore4(score4 + 2);
+    setScore1(score1 + 6);
+    setScore2(score2 + 7);
+    setScore3(score3 + 7);
+    setScore4(score4 + 8);
+    setScore5(score4 + 3);
 
     toggleCheck4(true);
     if (check4 === true) {
-      setScore(score - 9);
+      setScore1(score1 - 6);
+      setScore2(score2 - 7);
+      setScore3(score3 - 7);
+      setScore4(score4 - 8);
+      setScore5(score1 - 3);
       toggleCheck4(false);
     }
   }
 
   //wordpress functions
   function pluginImprover() {
-    setScore(score + 6);
+    setScore1(score1 + 6);
+    setScore2(score2 + 5);
+    setScore3(score3 + 6);
+    setScore4(score4 + 6);
+    setScore5(score1 + 7);
+
     toggleCheck5(true);
     if (check5 === true) {
-      setScore(score - 6);
+      setScore1(score1 - 6);
+      setScore2(score2 - 5);
+      setScore3(score3 - 6);
+      setScore4(score4 - 6);
+      setScore5(score1 - 7);
+
       toggleCheck5(false);
     }
   }
 
   function themeImprover() {
-    setScore(score + 8);
+    setScore1(score1 + 5);
+    setScore2(score2 + 4);
+    setScore3(score3 + 5);
+    setScore4(score4 + 6);
+    setScore5(score4 + 6);
+
     toggleCheck6(true);
     if (check6 === true) {
-      setScore(score - 8);
+      setScore1(score1 - 5);
+      setScore2(score2 - 4);
+      setScore3(score3 - 5);
+      setScore4(score4 - 6);
+      setScore5(score5 - 6);
       toggleCheck6(false);
     }
   }
 
   function cachingImprover() {
-    setScore(score + 1);
+    setScore1(score1 + 3);
+    setScore2(score2 + 2);
+    setScore3(score3 + 1);
+    setScore4(score4 + 2);
+    setScore5(score4 + 4);
     toggleCheck7(true);
     if (check7 === true) {
-      setScore(score - 1);
+      setScore1(score1 - 3);
+      setScore2(score2 - 2);
+      setScore3(score3 - 1);
+      setScore4(score4 - 2);
+      setScore5(score5 - 4);
       toggleCheck7(false);
     }
   }
 
   function hostingImprover() {
-    setScore(score + 5);
+    setScore1(score1 + 9);
+    setScore2(score2 + 8);
+    setScore3(score3 + 9);
+    setScore4(score4 + 7);
+    setScore5(score5 + 7);
     toggleCheck8(true);
     if (check8 === true) {
-      setScore(score - 5);
+      setScore1(score1 - 9);
+      setScore2(score2 - 8);
+      setScore3(score3 - 9);
+      setScore4(score4 - 7);
+      setScore5(score5 - 7);
       toggleCheck8(false);
     }
   }
@@ -226,11 +273,18 @@ function Improvements({
                             ? 0
                             : improvementsScore1
                         }
-
-                        // chartScore2={score2 >= 100 ? 100 : score2 < 0 ? 0 : score2}
-                        // chartScore3={score3 >= 100 ? 100 : score3 < 0 ? 0 : score3}
-                        // chartScore4={score4 >= 100 ? 100 : score4 < 0 ? 0 : score4}
-                        // chartScore5={score5 >= 100 ? 100 : score5 < 0 ? 0 : score5}
+                        chartScore2={
+                          score2 >= 100 ? 100 : score2 < 0 ? 0 : score2
+                        }
+                        chartScore3={
+                          score3 >= 100 ? 100 : score3 < 0 ? 0 : score3
+                        }
+                        chartScore4={
+                          score4 >= 100 ? 100 : score4 < 0 ? 0 : score4
+                        }
+                        chartScore5={
+                          score5 >= 100 ? 100 : score5 < 0 ? 0 : score5
+                        }
                       />
                     </div>
                   </div>
@@ -295,7 +349,25 @@ function Improvements({
 
                     <div className="wordpress-chart">
                       <ChartVertical
-                        chartScore1={score >= 100 ? 100 : score < 0 ? 0 : score}
+                        chartScore1={
+                          improvementsScore1 >= 100
+                            ? 100
+                            : improvementsScore1 < 0
+                            ? 0
+                            : improvementsScore1
+                        }
+                        chartScore2={
+                          score2 >= 100 ? 100 : score2 < 0 ? 0 : score2
+                        }
+                        chartScore3={
+                          score3 >= 100 ? 100 : score3 < 0 ? 0 : score3
+                        }
+                        chartScore4={
+                          score4 >= 100 ? 100 : score4 < 0 ? 0 : score4
+                        }
+                        chartScore5={
+                          score5 >= 100 ? 100 : score5 < 0 ? 0 : score5
+                        }
                       />
                     </div>
                   </div>

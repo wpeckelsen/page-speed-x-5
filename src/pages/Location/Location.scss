@@ -36,13 +36,30 @@ display: flex;
   column-gap: 20px;
 }
 
-
+div>div{
+  margin-bottom: 20px;
+}
 
 
 .result-squares{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: flex-start;
-  column-gap: 20px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.button-row{  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;}
+
+.square-container{
+  max-width: 200px;
+  max-height: 200px;
+}
+
+
+.calculated-score{
+  text-align: center;
 }

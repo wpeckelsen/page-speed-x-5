@@ -26,11 +26,11 @@ function ChartComponent({ chartScore1, chartScore2, chartScore3, chartScore4, ch
 
   const data = [
     ["Speed Score", "Speed Score", { role: "style" }],
-    ["Domain 1", 60, "#EF6461"],
-    ["Domain 2", 71, "#3F826D"],
-    ["Domain 3", 82, "#2e2f42"],
-    ["Domain 4", 55, "#ecc453"],
-    ["Domain 5", 89, "#604791"],
+    ["Domain 1", chartScore1, "#EF6461"],
+    ["Domain 2", chartScore2, "#3F826D"],
+    ["Domain 3", chartScore3, "#2e2f42"],
+    ["Domain 4", chartScore4, "#ecc453"],
+    ["Domain 5", chartScore5, "#604791"],
   ];
 
 

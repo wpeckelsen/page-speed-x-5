@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Button from "../../components/Button/Button";
 import "./Input.scss";
@@ -61,101 +61,101 @@ function Input() {
   const [input5, setInput5] = useState("");
 
   //API request state
-  const APIkey = "x";
-  const [score1, setScore1] = useState(0);
-  const [score2, setScore2] = useState(0);
-  const [score3, setScore3] = useState(0);
-  const [score4, setScore4] = useState(0);
-  const [score5, setScore5] = useState(0);
+  const APIkey = "secret";
+  const [score1, setScore1] = useState(55);
+  const [score2, setScore2] = useState(66);
+  const [score3, setScore3] = useState(77);
+  const [score4, setScore4] = useState(88);
+  const [score5, setScore5] = useState(99);
 
-  //misc states
+  //misc
   const [buttonDisplay, setButtonDisplay] = useState("hidden");
+  const [formSubmit, setFormSubmit] = useState(false);
   if (score1 > 0) {
     setButtonDisplay("visible");
   }
 
-  const [formSubmit, setFormSubmit] = useState(false);
 
-  //1: API get request
-  async function googleFetch1() {
-    const httpsInput1 = "https://www." + input1;
-    try {
-      const result = await axios.get(
-        `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput1}&key=${APIkey}`
-      );
-      setScore1(
-        result.data.lighthouseResult.categories.performance.score * 100
-      );
-    } catch (e) {
-      console.log("error");
+    //1: API get request
+    async function googleFetch1() {
+      const httpsInput1 = "https://www." + input1;
+      try {
+        const result = await axios.get(
+          `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput1}&key=${APIkey}`
+        );
+        setScore1(
+          result.data.lighthouseResult.categories.performance.score * 100
+        );
+      } catch (e) {
+        console.log("error");
+      }
     }
-  }
 
+    //2: API get request
+    async function googleFetch2() {
+      const httpsInput2 = "https://www." + input2;
 
-  //2: API get request
-  async function googleFetch2() {
-    const httpsInput2 = "https://www." + input2;
+      try {
+        const result = await axios.get(
+          `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput2}&key=${APIkey}`
+        );
 
-    try {
-      const result = await axios.get(
-        `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput2}&key=${APIkey}`
-      );
-
-      setScore2(
-        result.data.lighthouseResult.categories.performance.score * 100
-      );
-    } catch (e) {
-      console.log("error");
+        setScore2(
+          result.data.lighthouseResult.categories.performance.score * 100
+        );
+      } catch (e) {
+        console.log("error");
+      }
     }
-  }
 
-  //3: API get request
-  async function googleFetch3() {
-    const httpsInput3 = "https://www." + input3;
-    try {
-      const result = await axios.get(
-        `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput3}&key=${APIkey}`
-      );
+    //3: API get request
+    async function googleFetch3() {
+      const httpsInput3 = "https://www." + input3;
+      try {
+        const result = await axios.get(
+          `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput3}&key=${APIkey}`
+        );
 
-      setScore3(
-        result.data.lighthouseResult.categories.performance.score * 100
-      );
-    } catch (e) {
-      console.log("error");
+        setScore3(
+          result.data.lighthouseResult.categories.performance.score * 100
+        );
+      } catch (e) {
+        console.log("error");
+      }
     }
-  }
 
-  //4: API get request
-  async function googleFetch4() {
-    const httpsInput4 = "https://www." + input4;
-    try {
-      const result = await axios.get(
-        `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput4}&key=${APIkey}`
-      );
+    //4: API get request
+    async function googleFetch4() {
+      const httpsInput4 = "https://www." + input4;
+      try {
+        const result = await axios.get(
+          `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput4}&key=${APIkey}`
+        );
 
-      setScore4(
-        result.data.lighthouseResult.categories.performance.score * 100
-      );
-    } catch (e) {
-      console.log("error");
+        setScore4(
+          result.data.lighthouseResult.categories.performance.score * 100
+        );
+      } catch (e) {
+        console.log("error");
+      }
     }
-  }
 
-  //5: API get request
-  async function googleFetch5() {
-    const httpsInput5 = "https://www." + input5;
-    try {
-      const result = await axios.get(
-        `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput5}&key=${APIkey}`
-      );
+    //5: API get request
+    async function googleFetch5() {
+      const httpsInput5 = "https://www." + input5;
+      try {
+        const result = await axios.get(
+          `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput5}&key=${APIkey}`
+        );
 
-      setScore5(
-        result.data.lighthouseResult.categories.performance.score * 100
-      );
-    } catch (e) {
-      console.log("error");
+        setScore5(
+          result.data.lighthouseResult.categories.performance.score * 100
+        );
+      } catch (e) {
+        console.log("error");
+      }
     }
-  }
+
 
   return (
     <>
@@ -198,7 +198,12 @@ function Input() {
             )}
 
             <div className="input">
-              <form className="page-form" onSubmit={inputHandler}>
+              <form
+                className="page-form"
+                onSubmit={() => {
+                  inputHandler();
+                }}
+              >
                 <div className="grid-a">
                   <label htmlFor="domain-one">
                     <p>1. Domain Name</p>
@@ -299,26 +304,26 @@ function Input() {
         }
       />
 
-      {input1 || score2 || score3 || score4 || score5  > 0 ? (
+      {input1 || score2 || score3 || score4 || score5 > 0 ? (
         <span id="#results">
-          <Results
-            input1={input1}
-            input2={input2}
-            input3={input3}
-            input4={input4}
-            input5={input5}
-            inputScore1={score1}
-            inputScore2={score2}
-            inputScore3={score3}
-            inputScore4={score4}
-            inputScore5={score5}
-            inputChecker={formSubmit}
-            googleFetchersPasser={googleFetchers}
-          />
+          {/*<Results*/}
+          {/*  input1={input1}*/}
+          {/*  input2={input2}*/}
+          {/*  input3={input3}*/}
+          {/*  input4={input4}*/}
+          {/*  input5={input5}*/}
+          {/*  inputScore1={score1}*/}
+          {/*  inputScore2={score2}*/}
+          {/*  inputScore3={score3}*/}
+          {/*  inputScore4={score4}*/}
+          {/*  inputScore5={score5}*/}
+          {/*  inputChecker={formSubmit}*/}
+          {/*  googleFetchersPasser={googleFetchers}*/}
+          {/*/>*/}
         </span>
-
-
-      ) : ''}
+      ) : (
+        ""
+      )}
     </>
   );
 }

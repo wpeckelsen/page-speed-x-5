@@ -5,15 +5,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AuthContext from "./context/AuthContext";
-import GoogleContextProvider from "./context/GoogleContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <AuthContext>
-        <GoogleContextProvider>
-          <App />
-        </GoogleContextProvider>
+        <App />
       </AuthContext>
     </Router>
   </React.StrictMode>,

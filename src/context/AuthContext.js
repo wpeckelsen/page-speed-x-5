@@ -3,17 +3,11 @@ import { useHistory } from "react-router-dom";
 
 export const AuthContext = createContext({});
 
-
 function AuthContextFunction({ children }) {
-
-
   const [auth, toggleAuth] = useState({
     isAuth: false,
     user: null,
   });
-
-
-
 
   function login(jwtToken) {
     toggleAuth({
@@ -24,9 +18,6 @@ function AuthContextFunction({ children }) {
     history.push("/account");
   }
 
-
-
-
   function logout() {
     toggleAuth({
       ...auth,
@@ -35,9 +26,6 @@ function AuthContextFunction({ children }) {
     console.log("User Logged Out");
     history.push("/");
   }
-
-
-
 
   const history = useHistory();
   const data = {
