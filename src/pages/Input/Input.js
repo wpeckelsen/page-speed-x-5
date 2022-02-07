@@ -13,7 +13,7 @@ import { HashLink as Link } from "react-router-hash-link";
 function Input() {
 
   const history = useHistory();
-  const APIkey = "AIzaSyBZhdC66m4HakaLU31aLI_-WbXOQxeYWds";
+  const APIkey = "secret";
 
 
   //error states
