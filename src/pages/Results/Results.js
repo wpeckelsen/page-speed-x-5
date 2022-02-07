@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageCardWide from "../../components/PageCard/PageCardWide";
 import "./Results.scss";
 import Button from "../../components/Button/Button";
@@ -10,6 +10,7 @@ import ChartComponent from "../../components/Chart/Chart";
 import ErrorCard from "../../components/ErrorCard/ErrorCard";
 import Improvements from "../Improvements/Improvements";
 import Location from "../Location/Location";
+import "../../App.scss";
 
 function Results({
   input1,
@@ -28,9 +29,11 @@ function Results({
   const history = useHistory();
   const [improvements, setImprovements] = useState(false);
   const [location, setLocation] = useState(false);
+  const [sameTest, setSameTest] = useState(false);
 
-  function handleRunTest() {
+  function handleRunNewTest() {
     history.push("/input");
+    document.location.reload();
   }
 
   function handleImprovementsClick() {
@@ -41,6 +44,17 @@ function Results({
     setLocation(true);
   }
 
+  function handleRunTestAgain() {
+    history.push("/input#run-test");
+    setSameTest(true);
+  }
+
+  useEffect(() => {
+    if (inputScore1 > 0) {
+      setSameTest(false);
+    }
+  }, [inputScore1]);
+
   return (
     <>
       <PageCardWide
@@ -48,7 +62,7 @@ function Results({
         subtitle="Compare speeds of your domains"
         content={
           <>
-            {inputChecker ? (
+            {!inputChecker ? (
               <TextCard
                 title="Does it look a little empty here?"
                 content={
@@ -57,7 +71,7 @@ function Results({
                       That's probably because you did not run the Page Speed x 5
                       test yet!
                     </p>
-                    <Button click={handleRunTest} content="Run test now" />
+                    <Button click={handleRunNewTest} content="Run test now" />
                   </>
                 }
               />
@@ -65,6 +79,18 @@ function Results({
               <>
                 <div className="results">
                   <div className="result-graph">
+                    {(inputScore1 ||
+                      inputScore2 ||
+                      inputScore2 ||
+                      inputScore3 ||
+                      inputScore4 ||
+                      inputScore5) < 0 ? (
+                      <p>
+                        <b>Some domains might take a bit longer...</b>
+                      </p>
+                    ) : (
+                      ""
+                    )}
                     <ChartComponent
                       chartScore1={inputScore1}
                       chartScore2={inputScore2}
@@ -96,13 +122,23 @@ function Results({
                     <div>
                       <Button
                         content="Run this test again"
-                        click={googleFetchersPasser}
+                        click={handleRunTestAgain}
                       />
                     </div>
-
                     <div>
-                      <Button content="Run new test" click={handleRunTest} />
+                      <Button content="Run new test" click={handleRunNewTest} />
                     </div>
+
+                    {sameTest ? (
+                      <p>
+                        <b style={{ color: "#ff270b" }}>
+                          {" "}
+                          It might take a while, just keep an eye on the graphs
+                        </b>
+                      </p>
+                    ) : (
+                      ""
+                    )}
                   </div>
 
                   <TextCard
@@ -110,7 +146,7 @@ function Results({
                     content={
                       <span onClick={handleImprovementsClick}>
                         <p>
-                          <Link smooth to="input/#improvements">
+                          <Link smooth to="/input#improvements">
                             Improvements
                           </Link>
                         </p>
@@ -123,7 +159,7 @@ function Results({
                     content={
                       <span onClick={handleLocationClick}>
                         <p>
-                          <Link smooth to="input/#location">
+                          <Link smooth to="/input#location">
                             The location effect
                           </Link>
                         </p>
@@ -140,12 +176,12 @@ function Results({
       {improvements ? (
         <span id="improvements">
           <Improvements
-              improvementsScore1={inputScore1}
-              improvementsScore2={inputScore2}
-              improvementsScore3={inputScore3}
-              improvementsScore4={inputScore4}
-              improvementsScore5={inputScore5}
-
+            improvementsScore1={inputScore1}
+            improvementsScore2={inputScore2}
+            improvementsScore3={inputScore3}
+            improvementsScore4={inputScore4}
+            improvementsScore5={inputScore5}
+            inputChecker={inputChecker}
           />
         </span>
       ) : (
@@ -154,7 +190,14 @@ function Results({
 
       {location ? (
         <span id="location">
-          <Location />
+          <Location
+            locationScore1={inputScore1}
+            locationScore2={inputScore2}
+            locationScore3={inputScore3}
+            locationScore4={inputScore4}
+            locationScore5={inputScore5}
+            inputChecker={inputChecker}
+          />
         </span>
       ) : (
         ""

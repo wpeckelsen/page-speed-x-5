@@ -79,6 +79,7 @@ function Signup() {
             ""
           )}
 
+          <fieldset disabled="true">
           <form className="page-form" onSubmit={handleSignup}>
             <div className="grid-a">
               <label htmlFor="one">
@@ -142,6 +143,7 @@ function Signup() {
               <Button content="Sign Up" type="submit" />
             </div>
           </form>
+          </fieldset>
           <div className="login-text">
             <p>
               <Link to="/">I forgot my username/password</Link>

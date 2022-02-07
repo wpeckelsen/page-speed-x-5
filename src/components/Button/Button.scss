@@ -24,10 +24,15 @@ button:active{
 }
 
 button:hover{
-  background-color: #4e04ce;
+  background-color: #4f10cc;
+  border-color: #4f10cc;
 }
 
 
 .hidden{
   visibility: hidden;
+}
+
+.display{
+  visibility: visible;
 }

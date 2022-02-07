@@ -21,6 +21,8 @@ import Results from "./pages/Results/Results";
 import Signup from "./pages/Signup/Signup";
 import { AuthContext } from "./context/AuthContext";
 
+
+
 function App() {
   const { isAuth } = useContext(AuthContext);
 

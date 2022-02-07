@@ -43,3 +43,25 @@ p {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
+
+fieldset{
+display: block;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+padding-block-start: 0px;
+padding-inline-start: 0px;
+padding-inline-end: 0px;
+padding-block-end: 0px;
+min-inline-size: min-content;
+border-width: 0px;
+border-style: none;
+border-image: none;}
+
+button a {
+  color: $light-blue;
+  text-decoration: none;
+}
+
+a{
+  color: $deep-purple;
+}

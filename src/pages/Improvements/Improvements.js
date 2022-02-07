@@ -4,6 +4,8 @@ import "./Improvements.scss";
 import TextCard from "../../components/TextCard/TextCard";
 import { HashLink as Link } from "react-router-hash-link";
 import ChartVertical from "../../components/Chart/ChartVertical";
+import Button from "../../components/Button/Button";
+import {useHistory} from "react-router-dom";
 
 function Improvements({
   improvementsScore1,
@@ -11,7 +13,13 @@ function Improvements({
   improvementsScore3,
   improvementsScore4,
   improvementsScore5,
+inputChecker
 }) {
+
+  const history = useHistory()
+
+
+  ////////////////////////////////////////////
   const [score1, setScore1] = useState(improvementsScore1);
   const [score2, setScore2] = useState(improvementsScore2);
   const [score3, setScore3] = useState(improvementsScore3);
@@ -55,16 +63,16 @@ function Improvements({
     setScore2(score2 + 3);
     setScore3(score3 + 4);
     setScore4(score4 + 4);
-    setScore5(score4 + 3);
+    setScore5(score5 + 3);
 
     toggleCheck2(true);
 
     if (check2 === true) {
       setScore1(score1 - 4);
-      setScore2(score1 - 3);
-      setScore3(score1 - 4);
-      setScore4(score1 - 4);
-      setScore5(score1 - 3);
+      setScore2(score2 - 3);
+      setScore3(score3 - 4);
+      setScore4(score4 - 4);
+      setScore5(score5 - 3);
 
       toggleCheck2(false);
     }
@@ -75,16 +83,15 @@ function Improvements({
     setScore2(score2 + 4);
     setScore3(score3 + 3);
     setScore4(score4 + 2);
-    setScore5(score4 + 3);
+    setScore5(score5 + 3);
 
     toggleCheck3(true);
     if (check3 === true) {
       setScore1(score1 - 2);
-      setScore1(score1 - 4);
-      setScore1(score1 - 3);
-      setScore1(score1 - 2);
-      setScore5(score1 - 3);
-
+      setScore2(score2 - 4);
+      setScore3(score3 - 3);
+      setScore4(score4 - 2);
+      setScore5(score5 - 3);
       toggleCheck3(false);
     }
   }
@@ -94,7 +101,7 @@ function Improvements({
     setScore2(score2 + 7);
     setScore3(score3 + 7);
     setScore4(score4 + 8);
-    setScore5(score4 + 3);
+    setScore5(score5 + 3);
 
     toggleCheck4(true);
     if (check4 === true) {
@@ -102,7 +109,7 @@ function Improvements({
       setScore2(score2 - 7);
       setScore3(score3 - 7);
       setScore4(score4 - 8);
-      setScore5(score1 - 3);
+      setScore5(score5 - 3);
       toggleCheck4(false);
     }
   }
@@ -113,7 +120,7 @@ function Improvements({
     setScore2(score2 + 5);
     setScore3(score3 + 6);
     setScore4(score4 + 6);
-    setScore5(score1 + 7);
+    setScore5(score5 + 7);
 
     toggleCheck5(true);
     if (check5 === true) {
@@ -121,7 +128,7 @@ function Improvements({
       setScore2(score2 - 5);
       setScore3(score3 - 6);
       setScore4(score4 - 6);
-      setScore5(score1 - 7);
+      setScore5(score5 - 7);
 
       toggleCheck5(false);
     }
@@ -132,7 +139,7 @@ function Improvements({
     setScore2(score2 + 4);
     setScore3(score3 + 5);
     setScore4(score4 + 6);
-    setScore5(score4 + 6);
+    setScore5(score5 + 6);
 
     toggleCheck6(true);
     if (check6 === true) {
@@ -150,7 +157,7 @@ function Improvements({
     setScore2(score2 + 2);
     setScore3(score3 + 1);
     setScore4(score4 + 2);
-    setScore5(score4 + 4);
+    setScore5(score5 + 4);
     toggleCheck7(true);
     if (check7 === true) {
       setScore1(score1 - 3);
@@ -184,6 +191,25 @@ function Improvements({
       title="Improvements"
       subtitle="Check how you can improve your scores"
       content={
+        <>
+        {!inputChecker ? (
+        <TextCard
+        title="Does it look a little empty here?"
+        content={
+        <>
+        <p>
+        That's probably because you did not run the Page Speed x 5
+        test yet!
+        </p>
+        <Button click={()=>{history.push("/input")}} content="Run test now" />
+        </>
+      }
+        />
+        )
+
+        :
+        (
+        <>
         <>
           <div className="improvements">
             <TextCard
@@ -267,17 +293,13 @@ function Improvements({
                       {/*makes sure that the max value displayed will always be 100*/}
                       <ChartVertical
                         chartScore1={
-                          improvementsScore1 >= 100
-                            ? 100
-                            : improvementsScore1 < 0
-                            ? 0
-                            : improvementsScore1
+                          score1 >= 100 ? 100 : score1 < 0 ? 0 : score1
                         }
                         chartScore2={
-                          score2 >= 100 ? 100 : score2 < 0 ? 0 : score2
+                          improvementsScore2 >= 100 ? 100 : improvementsScore2 < 0 ? 0 : improvementsScore2
                         }
                         chartScore3={
-                          score3 >= 100 ? 100 : score3 < 0 ? 0 : score3
+                          improvementsScore3 >= 100 ? 100 : score3 < 0 ? 0 : score3
                         }
                         chartScore4={
                           score4 >= 100 ? 100 : score4 < 0 ? 0 : score4
@@ -350,11 +372,7 @@ function Improvements({
                     <div className="wordpress-chart">
                       <ChartVertical
                         chartScore1={
-                          improvementsScore1 >= 100
-                            ? 100
-                            : improvementsScore1 < 0
-                            ? 0
-                            : improvementsScore1
+                          score1 >= 100 ? 100 : score1 < 0 ? 0 : score1
                         }
                         chartScore2={
                           score2 >= 100 ? 100 : score2 < 0 ? 0 : score2
@@ -375,6 +393,10 @@ function Improvements({
               }
             />
           </div>
+        </>
+        </>)
+      }
+
         </>
       }
     />
