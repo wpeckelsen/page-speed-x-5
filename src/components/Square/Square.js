@@ -4,7 +4,8 @@ import "./Square.scss"
 function Square({content}) {
     return (
         <div className="square">
-            {content}</div>
+           <span> {content}</span>
+        </div>
     );
 }
 

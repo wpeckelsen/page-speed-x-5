@@ -4,13 +4,14 @@ _This project was bootstrapped with [Create React App](https://github.com/facebo
 
 ## What does this application do?
 
+This application makes use of the
+[Google PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started).
 
 A user can fill in five domain names simultaneously, 
 after which the application sends five GET requests to the Google PageSpeed Insights API. The results of this GET request in turn
 populate a [Google Chart](https://developers.google.com/chart/interactive/docs).
 
-This application makes use of the
-[Google PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started).
+
 
 This chart is implemented in this app through an NPM package: [React Google Charts
 ](https://www.react-google-charts.com/).
@@ -40,6 +41,8 @@ Install Axios by running the following command in your terminal:
 
 
 ###4: Get an API key
+**working API key provided in ZIP file**
+ 
 
 Before you can run this application, you will need an API key. You can generate one [here](https://developers.google.com/speed/docs/insights/v5/get-started#APIKey).
 Create a file called `.env` in the root folder. In this file you must paste the following line: 

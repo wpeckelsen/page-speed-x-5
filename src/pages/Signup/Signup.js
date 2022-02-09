@@ -13,6 +13,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const [forgot, setForgot]=useState(false)
 
   async function handleSignup(e) {
     e.preventDefault(e);
@@ -157,9 +158,18 @@ function Signup() {
           </form>
 
           <div className="login-text">
+
             <p>
-              <Link to="/">I forgot my username/password</Link>
+              <Link to="/signup"
+                    onClick={() => {
+                      setForgot(!forgot);
+                    }}
+              >
+                Forgot your username/password?{" "}
+              </Link>
             </p>
+            {forgot ? <p>Damn that's unfortunate. 🤡</p> : ""}
+
             <p>
               Already have an account? <Link to="/login">Log in</Link>
             </p>

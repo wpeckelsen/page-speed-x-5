@@ -1,10 +1,14 @@
 import "./NavBar.scss";
 import { NavLink, useHistory } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
 import React, { useContext } from "react";
+import Button from "../Button/Button";
+import {AuthContext} from "../../context/AuthContext";
+
 
 function NavBar() {
   const { auth, logout } = useContext(AuthContext);
+  const all = useContext(AuthContext)
+    console.log(all)
 
   return (
     <div className="nav-bar">
@@ -23,13 +27,9 @@ function NavBar() {
           </p>
         </NavLink>
 
-        {auth ? (
-          <NavLink to="/" exact onClick={logout}>
-            <p>
-              <b>Log Out</b>
-            </p>
-          </NavLink>
-        ) : (
+        {auth ?
+            <NavLink to="/" onClick={logout}><p><b>Log Out</b></p></NavLink>
+         :
           <>
             <NavLink to="/signup" exact activeClassName="current-link">
               <p>
@@ -43,7 +43,7 @@ function NavBar() {
               </p>
             </NavLink>
           </>
-        )}
+        }
       </div>
     </div>
   );

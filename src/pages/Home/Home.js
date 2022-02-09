@@ -14,13 +14,10 @@ function Home() {
 
   const history = useHistory();
 
-
-
   return (
     <>
       <header style={{ backgroundImage: `url(${background})` }}>
-
-        <Square content={<h2><i> PAGE  SPEED </i><br/> x <br/> 5</h2>} />
+        <Square content={<h2>Page Speed x 5</h2>} />
 
         <Button
           content={<Link to={isAuth ? "/input" : "/login"}>Run the test</Link>}
@@ -30,14 +27,18 @@ function Home() {
       <div className="blog-section">
         <PageCardNarrow
           title="Blog Title!"
-          content={
+          content={<>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Architecto beatae corporis delectus, enim ipsam iste officia quas
-              quod repudiandae saepe totam veritatis! Dolores eaque eligendi
-              iusto magni nesciunt quas! Facilis.{" "}
-              <Link to="/404">Read more</Link>
+                This project was bootstrapped with Create React App. </p>
+                <p>
+              This application makes use of the Google PageSpeed Insights API. A
+              user can fill in five domain names simultaneously, after which the
+              application sends five GET requests to the Google PageSpeed
+              Insights API. The results of this GET request in turn populate a
+              Google Chart. This chart is implemented in this app through an NPM
+              package: React Google Charts. <a href="https://github.com/wpeckelsen/page-speed-x-5">Read More</a>
             </p>
+          </>
           }
         />
       </div>

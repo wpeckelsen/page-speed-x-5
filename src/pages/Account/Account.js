@@ -3,7 +3,7 @@ import PageCardWide from "../../components/PageCard/PageCardWide";
 import Button from "../../components/Button/Button";
 import "./Account.scss";
 import TextCard from "../../components/TextCard/TextCard";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from "axios";
 import {AuthContext} from "../../context/AuthContext";
 
@@ -20,7 +20,7 @@ function Account(props) {
       const token = localStorage.getItem('token');
 
       try {
-        const result = await axios.get('http://localhost:3000/660/private-content', {
+        const result = await axios.get('https://frontend-educational-backend.herokuapp.com/api/user', {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -72,6 +72,7 @@ function Account(props) {
                     value={user.password}
                     id="two"
                     className="account-label"
+                    readOnly
                   />
                 </div>
 

@@ -11,13 +11,13 @@ function Login() {
   const { login } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false)
-
+  const [error, setError] = useState(false);
+  const [forgot, setForgot] = useState(false);
 
   async function handleLogin(e) {
     e.preventDefault();
-    setError(false)
-    console.log("testing function")
+    setError(false);
+    console.log("testing function");
 
     try {
       const result = await axios.post(
@@ -28,14 +28,11 @@ function Login() {
         }
       );
 
-      console.log(result.data)
+      console.log(result.data);
 
-
-      login(result.accessToken);
-
+      login(result.data.accessToken);
     } catch (e) {
       console.log("error logging in");
-
     }
   }
 
@@ -46,10 +43,14 @@ function Login() {
         subtitle="fill in your username and password to continue"
         content={
           <>
-            { error ? <ErrorCard
-            title="Unknown username or password"
-            content="The information you provided does not seem to match any account"/> : ''
-            }
+            {error ? (
+              <ErrorCard
+                title="Unknown username or password"
+                content="The information you provided does not seem to match any account"
+              />
+            ) : (
+              ""
+            )}
             <form className="page-form" onSubmit={handleLogin}>
               <div className="grid-a">
                 <label htmlFor="one">
@@ -95,11 +96,9 @@ function Login() {
 
             <div className="login-text">
               <p>
-                <Link to="/">I forgot my username/password</Link>
-              </p>
-              <p>
                 Don't have an account yet? <Link to="/signup">Sign up</Link>
               </p>
+
             </div>
           </>
         }

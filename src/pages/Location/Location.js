@@ -32,7 +32,7 @@ function Location({
       subtitle="See the influence geography has on your score"
       content={
         <>
-          {!inputChecker ? (
+          {inputChecker ? (
             <TextCard
               title="Does it look a little empty here?"
               content={
@@ -97,7 +97,7 @@ function Location({
                         />
                       </div>
                       <div className="result-squares">
-                        <Square content={<h2> ? pickedScore : 0</h2>} />
+                        <Square content={{pickedScore} ? <h2>{pickedScore}</h2> : <h2>0</h2>} />
                       </div>
                     </>
                   }
@@ -247,7 +247,8 @@ function Location({
 
                       <h3 className="calculated-score">Calculated score</h3>
                       <div className="result-squares">
-                        <Square content={<h2> >= 100 ? 100 : newScore</h2>} />
+                        <Square content=
+                                    {{pickedScore} >= 100 ? <h2>100</h2> : <h2>{newScore}</h2>} />
                       </div>
                     </>
                   }

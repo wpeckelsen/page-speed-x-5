@@ -13,7 +13,7 @@ import { Dots } from 'loading-animations-react';
 
 function Input() {
 
-  const APIkey = process.env.REACT_APP_API_KEY;
+
 
 
   //error states
@@ -103,7 +103,7 @@ function Input() {
 
           try {
             const result = await axios.get(
-                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput1}&key=${APIkey}`, {cancelToken: source.token}
+                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput1}&key=${process.env.REACT_APP_API_KEY}`, {cancelToken: source.token}
             );
 
             setScore1(
@@ -120,7 +120,7 @@ function Input() {
 
           try {
             const result = await axios.get(
-                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput2}&key=${APIkey}`, {cancelToken: source.token}
+                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput2}&key=${process.env.REACT_APP_API_KEY}`, {cancelToken: source.token}
             );
 
             setScore2(
@@ -136,7 +136,7 @@ function Input() {
           const httpsInput3 = "https://www." + input3;
           try {
             const result = await axios.get(
-                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput3}&key=${APIkey}`, {cancelToken: source.token}
+                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput3}&key=${process.env.REACT_APP_API_KEY}`, {cancelToken: source.token}
             );
 
             setScore3(
@@ -152,7 +152,7 @@ function Input() {
           const httpsInput4 = "https://www." + input4;
           try {
             const result = await axios.get(
-                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput4}&key=${APIkey}`,{cancelToken: source.token},
+                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput4}&key=${process.env.REACT_APP_API_KEY}`,{cancelToken: source.token},
             );
 
             setScore4(
@@ -168,7 +168,7 @@ function Input() {
           const httpsInput5 = "https://www." + input5;
           try {
             const result = await axios.get(
-                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput5}&key=${APIkey}`,{cancelToken: source.token}
+                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput5}&key=${process.env.REACT_APP_API_KEY}`,{cancelToken: source.token}
             );
 
             setScore5(
@@ -374,16 +374,10 @@ useEffect(()=>{
               </fieldset>
             </div>
             {loadingText ? (
-              // <p style={{ textAlign: "center" }}>
-              //   <b>
-              //     {" "}
-              //     Loading... <br />
-              //     This might take up to 20 seconds
-              //   </b>
-              // </p>
-                <Button
-                content={<Dots text="Loading... This might take up to 20 seconds" />}
-                />
+
+                <p><b>"Loading... This might take up to 20 seconds</b></p>
+
+
 
 
             ) : (

@@ -20,58 +20,61 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Results from "./pages/Results/Results";
 import Signup from "./pages/Signup/Signup";
 
-import {AuthContext} from "./context/AuthContext";
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
   const { auth } = useContext(AuthContext);
+  const authent = useContext(AuthContext)
+  console.log(authent)
 
   return (
-    <Router>
+    <>
       <NavBar />
 
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
+      {/*<Router>*/}
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
 
-        <Route path="/account">
-          {auth ? <Account /> : <Redirect to="/login" />}
-        </Route>
+          <Route exact path="/account">
+            {auth ? <Account /> : <Redirect to="/login" />}
+          </Route>
 
-        <Route path="/improvements">
-          {auth ? <Improvements /> : <Redirect to="/login" />}
-        </Route>
+          <Route exact path="/improvements">
+            {auth ? <Improvements /> : <Redirect to="/login" />}
+          </Route>
 
-        <Route path="/input">
-          {auth ? <Input /> : <Redirect to="/login" />}
-        </Route>
+          <Route exact path="/input">
+            {auth ? <Input /> : <Redirect to="/login" />}
+          </Route>
 
-        <Route path="/location">
-          {auth ? <Location /> : <Redirect to="/login" />}
-        </Route>
+          <Route exact path="/location">
+            {auth ? <Location /> : <Redirect to="/login" />}
+          </Route>
 
-        <Route path="/login">
-          <Login/>
+          <Route exact path="/login">
+            <Login />
+          </Route>
 
-        </Route>
+          <Route exact path="/404">
+            <PageNotFound />
+          </Route>
 
-        <Route path="/404">
-          <PageNotFound />
-        </Route>
+          <Route exact path="/results">
+            {auth ? <Results /> : <Redirect to="/login" />}
+          </Route>
 
-        <Route path="/results">
-          {auth ? <Results /> : <Redirect to="/login" />}
-        </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
 
-        <Route path="/signup">
-          <Signup />
-        </Route>
-
-        <Route path="*">
-          <PageNotFound />
-        </Route>
-      </Switch>
-    </Router>
+          <Route path="*">
+            <PageNotFound />
+          </Route>
+        </Switch>
+      {/*</Router>*/}
+    </>
   );
 }
 

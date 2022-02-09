@@ -11,14 +11,15 @@ function AuthContextProvider({ children }) {
   const history = useHistory();
 
   const [auth, toggleAuth] = useState({
-    user: null,
     auth: false,
     status: "pending",
+    user: null,
   });
 
   useEffect(() => {
     // haal de JWT op uit Local Storage
     const accessToken = localStorage.getItem("accessToken");
+
 
     // als er WEL een token is, haal dan opnieuw de gebruikersdata op
     if (accessToken && isTokenValid(accessToken)) {
@@ -28,8 +29,8 @@ function AuthContextProvider({ children }) {
       // als er GEEN accessToken is doen we niks, en zetten we de status op 'done'
       toggleAuth({
         auth: false,
-        user: null,
         status: "done",
+        user: null,
       });
     }
   }, []);
@@ -38,18 +39,17 @@ function AuthContextProvider({ children }) {
     localStorage.setItem("accessToken", JWT);
     const decoded = jwt_decode(JWT);
     userFetch(decoded.sub, JWT, "/account");
-    history.push("/account")
-    console.log("User Logged In");
+    console.log("User Logged In. message from authcontext");
   }
 
   function logout() {
-      localStorage.clear();
+    history.push("/");
+    localStorage.removeItem('accessToken')
     toggleAuth({
       auth: false,
-      user: null,
       status: "done",
+      user: null,
     });
-    history.push("/");
     console.log("User Logged Out");
   }
 
@@ -71,12 +71,12 @@ function AuthContextProvider({ children }) {
       toggleAuth({
         ...auth,
         auth: true,
+        status: "done",
         user: {
           username: result.data.username,
           email: result.data.email,
           id: result.data.id,
         },
-        status: "done",
       });
 
       // als er een redirect URL is meegegeven (bij het mount-effect doen we dit niet) linken we hiernnaartoe door
@@ -89,14 +89,14 @@ function AuthContextProvider({ children }) {
       // ging er iets mis? Plaatsen we geen data in de state
       toggleAuth({
         auth: false,
-        user: null,
         status: "done",
+        user: null,
       });
     }
   }
 
   const data = {
-    auth: auth,
+    auth: auth.auth,
     user: auth.user,
     login: login,
     logout: logout,
