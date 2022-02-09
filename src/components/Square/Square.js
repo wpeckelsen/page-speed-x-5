@@ -3,7 +3,8 @@ import "./Square.scss"
 
 function Square({content}) {
     return (
-        <div className="square"><h1 className="page-title">{content}</h1></div>
+        <div className="square">
+            {content}</div>
     );
 }
 

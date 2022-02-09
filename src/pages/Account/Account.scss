@@ -19,10 +19,18 @@
 .account-divider {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
+
+.user{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+}
 .username-text {
   text-align: center;
 }

@@ -97,7 +97,7 @@ function Location({
                         />
                       </div>
                       <div className="result-squares">
-                        <Square content={pickedScore ? pickedScore : 0} />
+                        <Square content={<h2> ? pickedScore : 0</h2>} />
                       </div>
                     </>
                   }
@@ -247,7 +247,7 @@ function Location({
 
                       <h3 className="calculated-score">Calculated score</h3>
                       <div className="result-squares">
-                        <Square content={newScore >= 100 ? 100 : newScore} />
+                        <Square content={<h2> >= 100 ? 100 : newScore</h2>} />
                       </div>
                     </>
                   }

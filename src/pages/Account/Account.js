@@ -1,16 +1,44 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import PageCardWide from "../../components/PageCard/PageCardWide";
 import Button from "../../components/Button/Button";
 import "./Account.scss";
 import TextCard from "../../components/TextCard/TextCard";
 import { Link } from "react-router-dom";
-import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
+import axios from "axios";
+import {AuthContext} from "../../context/AuthContext";
+
+
 
 function Account(props) {
+  const [account, setAccount] = useState({});
+  const { user } = useContext(AuthContext);
+
+
+  useEffect( ()=>{
+    async function accountFetch() {
+      // haal de token uit de Local Storage om in het GET-request te bewijzen dat we geauthoriseerd zijn
+      const token = localStorage.getItem('token');
+
+      try {
+        const result = await axios.get('http://localhost:3000/660/private-content', {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setAccount(result.data);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    accountFetch();
+  }, [])
+
   return (
-    <PageCardNarrow
+    <PageCardWide
       title="My account"
-      subtitle="Hello {Username}"
+      subtitle={<span>Hello, <b>{user.username}</b></span>}
       content={
         <>
           <div className="account">
@@ -25,7 +53,7 @@ function Account(props) {
                 <div className="grid-b">
                   <input
                     type="text"
-                    value="jimmy"
+                    value={user.username}
                     id="one"
                     className="account-label"
                     readOnly
@@ -40,8 +68,8 @@ function Account(props) {
 
                 <div className="grid-d">
                   <input
-                    type="text"
-                    value="password"
+                    type="password"
+                    value={user.password}
                     id="two"
                     className="account-label"
                   />
@@ -56,21 +84,19 @@ function Account(props) {
                 <div className="grid-f">
                   <input
                     type="text"
-                    value="email"
+                    value={user.email}
                     id="three"
                     className="account-label"
                     readOnly
                   />
                 </div>
 
-                <div className="grid-h">
-                  <Button content="Log out" />
-                </div>
               </div>
 
               <div className="user">
                 <div className="account-avatar"></div>
-                <p className="username-text">Username</p>
+                <p className="username-text">{user.username}</p>
+                <Button content="Log out" />
               </div>
             </div>
 
@@ -84,7 +110,7 @@ function Account(props) {
               title="Run a test on 5 domains simultaneously"
               content={
                 <p>
-                  <Link to="/input-domain">Speed test 5 domains</Link>
+                  <Link to="/input">Speed test 5 domains</Link>
                 </p>
               }
             />

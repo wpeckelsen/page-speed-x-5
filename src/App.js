@@ -19,12 +19,11 @@ import Login from "./pages/Login/Login";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Results from "./pages/Results/Results";
 import Signup from "./pages/Signup/Signup";
-import { AuthContext } from "./context/AuthContext";
 
-
+import {AuthContext} from "./context/AuthContext";
 
 function App() {
-  const { isAuth } = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
 
   return (
     <Router>
@@ -36,27 +35,24 @@ function App() {
         </Route>
 
         <Route path="/account">
-            {/*{isAuth ? <Account /> : <Redirect to="/login" />}*/}
-          <Account />
+          {auth ? <Account /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/improvements">
-          {/*{isAuth ? <Improvements /> : <Redirect to="/login" />}*/}
-          <Improvements />
+          {auth ? <Improvements /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/input">
-        {/*{isAuth ? <Input /> : <Redirect to="/login" />}*/}
-          <Input />
+          {auth ? <Input /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/location">
-          {/*{isAuth ? <Location /> : <Redirect to="/login" />}*/}
-          <Location />
+          {auth ? <Location /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">
-          <Login />
+          <Login/>
+
         </Route>
 
         <Route path="/404">
@@ -64,8 +60,7 @@ function App() {
         </Route>
 
         <Route path="/results">
-          {/*{isAuth ? <Results/> : <Redirect to="/login" />}*/}
-          <Results/>
+          {auth ? <Results /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/signup">

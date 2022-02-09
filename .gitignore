@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 src/to-do.md
+
+# API key. Check README on how to obtain the API key.
+.env

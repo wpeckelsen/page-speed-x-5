@@ -1,9 +1,6 @@
 import React from "react";
-
 import "../../App.scss";
-import Button from "../../components/Button/Button";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
-import Square from "../../components/Square/Square";
 import {Link} from "react-router-dom";
 import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
 

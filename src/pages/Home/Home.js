@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
-
+import { HashLink as Link } from "react-router-hash-link";
 import "./Home.scss";
 import Button from "../../components/Button/Button";
 import background from "/Users/wessel/WebstormProjects/pagespeedx5/src/assets/pagespeedx5cover.jpg";
@@ -14,18 +14,17 @@ function Home() {
 
   const history = useHistory();
 
-  function handleClick() {
-    {
-      isAuth ? history.push("/input-domain") : history.push("/login");
-    }
-  }
+
 
   return (
     <>
       <header style={{ backgroundImage: `url(${background})` }}>
-        <Square content={<i>PAGE SPEED x 5</i>} />
 
-        <Button content={<h3>Run The Test</h3>} click={handleClick} />
+        <Square content={<h2><i> PAGE  SPEED </i><br/> x <br/> 5</h2>} />
+
+        <Button
+          content={<Link to={isAuth ? "/input" : "/login"}>Run the test</Link>}
+        />
       </header>
 
       <div className="blog-section">

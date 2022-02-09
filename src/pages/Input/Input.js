@@ -8,12 +8,12 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Results from "../Results/Results";
 import { HashLink as Link } from "react-router-hash-link";
+import { Dots } from 'loading-animations-react';
 
 
 function Input() {
 
-  const history = useHistory();
-  const APIkey = "secret";
+  const APIkey = process.env.REACT_APP_API_KEY;
 
 
   //error states
@@ -85,17 +85,6 @@ function Input() {
     console.log("FORM SUBMITTED🤖👍");
     }
   }
-
-  // function formSender() {
-  //   googleFetchers();
-  // }
-  // function googleFetchers() {
-  //   googleFetch1();
-  //   googleFetch2();
-  //   googleFetch3();
-  //   googleFetch4();
-  //   googleFetch5();
-  // }
 
 
 
@@ -385,13 +374,18 @@ useEffect(()=>{
               </fieldset>
             </div>
             {loadingText ? (
-              <p style={{ textAlign: "center" }}>
-                <b>
-                  {" "}
-                  Loading... <br />
-                  This might take up to 20 seconds
-                </b>
-              </p>
+              // <p style={{ textAlign: "center" }}>
+              //   <b>
+              //     {" "}
+              //     Loading... <br />
+              //     This might take up to 20 seconds
+              //   </b>
+              // </p>
+                <Button
+                content={<Dots text="Loading... This might take up to 20 seconds" />}
+                />
+
+
             ) : (
               ""
             )}

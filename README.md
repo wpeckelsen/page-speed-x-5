@@ -39,16 +39,26 @@ Install Axios by running the following command in your terminal:
 ####`npm install axios`
 
 
+###4: Get an API key
+
+Before you can run this application, you will need an API key. You can generate one [here](https://developers.google.com/speed/docs/insights/v5/get-started#APIKey).
+Create a file called `.env` in the root folder. In this file you must paste the following line: 
+####`REACT_APP_API_KEY=`
+
+Your newly generated API key should be pasted behind this, without quotations, brackets or anything around it.
+
+To add this file to the application you must run the following command in your terminal: 
+####`npm run build`
 
 
 
-###4: Start the application
 
-Run the following command in your terminal to start this application
+###5: Start the application
+Run the following command in your terminal to start this application:
 
 ####`npm run start`
 
 
-###5: During the application
+###6: During the application
 the application should now open in your browser on: `http://localhost:3000`
-To exit the application, hit: `ctrl` `C` in your terminal for both Mac and Windows. 
+To exit the application, hit: `ctrl` + `c` in your terminal for both Mac and Windows. 
