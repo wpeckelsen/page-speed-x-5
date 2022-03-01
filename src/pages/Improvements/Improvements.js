@@ -5,7 +5,7 @@ import TextCard from "../../components/TextCard/TextCard";
 import { HashLink as Link } from "react-router-hash-link";
 import ChartVertical from "../../components/Chart/ChartVertical";
 import Button from "../../components/Button/Button";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Improvements({
   improvementsScore1,
@@ -13,13 +13,11 @@ function Improvements({
   improvementsScore3,
   improvementsScore4,
   improvementsScore5,
-inputChecker
+  inputChecker,
 }) {
+  const history = useHistory();
 
-  const history = useHistory()
 
-
-  ////////////////////////////////////////////
   const [score1, setScore1] = useState(improvementsScore1);
   const [score2, setScore2] = useState(improvementsScore2);
   const [score3, setScore3] = useState(improvementsScore3);
@@ -38,7 +36,7 @@ inputChecker
   const [check7, toggleCheck7] = useState(false);
   const [check8, toggleCheck8] = useState(false);
 
-  //if box is checked, it increase, if unchecked, it decrease with same value.
+  //if box is checked, it increase, if unchecked, it decreases with same value.
   function imageImprover() {
     setScore1(score1 + 2);
     setScore2(score2 + 1);
@@ -192,211 +190,235 @@ inputChecker
       subtitle="Check how you can improve your scores"
       content={
         <>
-        {!inputChecker ? (
-        <TextCard
-        title="Does it look a little empty here?"
-        content={
-        <>
-        <p>
-        That's probably because you did not run the Page Speed x 5
-        test yet!
-        </p>
-        <Button click={()=>{history.push("/input")}} content="Run test now" />
-        </>
-      }
-        />
-        )
-
-        :
-        (
-        <>
-        <>
-          <div className="improvements">
+          {!inputChecker ? (
             <TextCard
-              title="Improvements explained"
+              title="Does it look a little empty here?"
               content={
                 <>
                   <p>
-                    Here are some improvements you could implement in your slow
-                    website. Tick a box and see how it would improve your score.
-                    Go ahead, tick some boxes.
+                    That's probably because you did not run the Page Speed x 5
+                    test yet!
                   </p>
-                  <h3>WordPress</h3>
-                  <p>
-                    Wait! Are you using a Wordpress website? Check additional
-                    improvements{" "}
-                    <Link smooth to="/input#wordpress">
-                      here
-                    </Link>
-                    .
-                  </p>
+                  <Button
+                    click={() => {
+                      history.push("/input");
+                    }}
+                    content="Run test now"
+                  />
                 </>
               }
             />
-
-            <TextCard
-              content={
-                <>
-                  <div className="improvements-divider">
-                    <div className="checkboxes">
-                      <h3>Suggestions</h3>
-
-                      <label htmlFor="images" className="improvements-label">
-                        <input
-                          type="checkbox"
-                          name="images"
-                          value="images"
-                          checked={check1}
-                          onClick={imageImprover}
-                        />
-                        <p>Decompress large images</p>
-                      </label>
-
-                      <label
-                        htmlFor="javascript"
-                        className="improvements-label"
-                      >
-                        <input
-                          type="checkbox"
-                          name="javascript"
-                          value="javascript"
-                          checked={check2}
-                          onClick={javascriptImprover}
-                        />
-                        <p>Write JavaScript ‘below the fold’</p>
-                      </label>
-
-                      <label htmlFor="css" className="improvements-label">
-                        <input
-                          type="checkbox"
-                          name="css"
-                          value="css"
-                          checked={check3}
-                          onClick={cssImprover}
-                        />
-                        <p>Remove unused CSS</p>
-                      </label>
-
-                      <label htmlFor="cdn" className="improvements-label">
-                        <input
-                          type="checkbox"
-                          name="cdn"
-                          value="cdn"
-                          checked={check4}
-                          onClick={cdnImprover}
-                        />
-                        <p>Implement a CDN (Content Delivery Network)</p>
-                      </label>
-                    </div>
-
-                    <div className="improvements-chart">
-                      {/*makes sure that the max value displayed will always be 100*/}
-                      <ChartVertical
-                        chartScore1={
-                          score1 >= 100 ? 100 : score1 < 0 ? 0 : score1
-                        }
-                        chartScore2={
-                          improvementsScore2 >= 100 ? 100 : improvementsScore2 < 0 ? 0 : improvementsScore2
-                        }
-                        chartScore3={
-                          improvementsScore3 >= 100 ? 100 : score3 < 0 ? 0 : score3
-                        }
-                        chartScore4={
-                          score4 >= 100 ? 100 : score4 < 0 ? 0 : score4
-                        }
-                        chartScore5={
-                          score5 >= 100 ? 100 : score5 < 0 ? 0 : score5
-                        }
-                      />
-                    </div>
-                  </div>
-                </>
-              }
-            />
-
-            <TextCard
-              content={
-                <>
-                  <div className="wordpress-divider">
-                    <div className="checkboxes">
-                      <h3 id="wordpress">Wordpress Suggestions</h3>
-
-                      <label htmlFor="plugin" className="improvements-label">
-                        <input
-                          type="checkbox"
-                          name="plugin"
-                          value="plugin"
-                          checked={check5}
-                          onClick={pluginImprover}
-                        />
-                        <p>Reducing the amount of plug-ins</p>
-                      </label>
-
-                      <label htmlFor="theme" className="improvements-label">
-                        <input
-                          type="checkbox"
-                          name="theme"
-                          value="theme"
-                          checked={check6}
-                          onClick={themeImprover}
-                        />
+          ) : (
+            <>
+              <>
+                <div className="improvements">
+                  <TextCard
+                    title="Improvements explained"
+                    content={
+                      <>
                         <p>
-                          Removing unused themes and picking a light weight
-                          theme
+                          Here are some improvements you could implement in your
+                          slow website. Tick a box and see how it would improve
+                          your score. Go ahead, tick some boxes.
                         </p>
-                      </label>
+                        <h3>WordPress</h3>
+                        <p>
+                          Wait! Are you using a Wordpress website? Check
+                          additional improvements{" "}
+                          <Link smooth to="/input#wordpress">
+                            here
+                          </Link>
+                          .
+                        </p>
+                      </>
+                    }
+                  />
 
-                      <label htmlFor="caching" className="improvements-label">
-                        <input
-                          type="checkbox"
-                          name="caching"
-                          value="caching"
-                          checked={check7}
-                          onClick={cachingImprover}
-                        />
-                        <p>Enable advanced caching </p>
-                      </label>
+                  <TextCard
+                    content={
+                      <>
+                        <div className="improvements-divider">
+                          <div className="checkboxes">
+                            <h3>Suggestions</h3>
 
-                      <label htmlFor="hosting" className="improvements-label">
-                        <input
-                          type="checkbox"
-                          name="hosting"
-                          value="hosting"
-                          checked={check8}
-                          onClick={hostingImprover}
-                        />
-                        <p>Switch hosting provider</p>
-                      </label>
-                    </div>
+                            <label
+                              htmlFor="images"
+                              className="improvements-label"
+                            >
+                              <input
+                                type="checkbox"
+                                name="images"
+                                value="images"
+                                checked={check1}
+                                onClick={imageImprover}
+                              />
+                              <p>Decompress large images</p>
+                            </label>
 
-                    <div className="wordpress-chart">
-                      <ChartVertical
-                        chartScore1={
-                          score1 >= 100 ? 100 : score1 < 0 ? 0 : score1
-                        }
-                        chartScore2={
-                          score2 >= 100 ? 100 : score2 < 0 ? 0 : score2
-                        }
-                        chartScore3={
-                          score3 >= 100 ? 100 : score3 < 0 ? 0 : score3
-                        }
-                        chartScore4={
-                          score4 >= 100 ? 100 : score4 < 0 ? 0 : score4
-                        }
-                        chartScore5={
-                          score5 >= 100 ? 100 : score5 < 0 ? 0 : score5
-                        }
-                      />
-                    </div>
-                  </div>
-                </>
-              }
-            />
-          </div>
-        </>
-        </>)
-      }
+                            <label
+                              htmlFor="javascript"
+                              className="improvements-label"
+                            >
+                              <input
+                                type="checkbox"
+                                name="javascript"
+                                value="javascript"
+                                checked={check2}
+                                onClick={javascriptImprover}
+                              />
+                              <p>Write JavaScript ‘below the fold’</p>
+                            </label>
 
+                            <label htmlFor="css" className="improvements-label">
+                              <input
+                                type="checkbox"
+                                name="css"
+                                value="css"
+                                checked={check3}
+                                onClick={cssImprover}
+                              />
+                              <p>Remove unused CSS</p>
+                            </label>
+
+                            <label htmlFor="cdn" className="improvements-label">
+                              <input
+                                type="checkbox"
+                                name="cdn"
+                                value="cdn"
+                                checked={check4}
+                                onClick={cdnImprover}
+                              />
+                              <p>Implement a CDN (Content Delivery Network)</p>
+                            </label>
+                          </div>
+
+                          <div className="improvements-chart">
+                            {/*makes sure that the max value displayed will always be 100*/}
+                            <ChartVertical
+                              chartScore1={
+                                score1 >= 100 ? 100 : score1 < 0 ? 0 : score1
+                              }
+                              chartScore2={
+                                improvementsScore2 >= 100
+                                  ? 100
+                                  : improvementsScore2 < 0
+                                  ? 0
+                                  : improvementsScore2
+                              }
+                              chartScore3={
+                                improvementsScore3 >= 100
+                                  ? 100
+                                  : score3 < 0
+                                  ? 0
+                                  : score3
+                              }
+                              chartScore4={
+                                score4 >= 100 ? 100 : score4 < 0 ? 0 : score4
+                              }
+                              chartScore5={
+                                score5 >= 100 ? 100 : score5 < 0 ? 0 : score5
+                              }
+                            />
+                          </div>
+                        </div>
+                      </>
+                    }
+                  />
+
+                  <TextCard
+                    content={
+                      <>
+                        <div className="wordpress-divider">
+                          <div className="checkboxes">
+                            <h3 id="wordpress">Wordpress Suggestions</h3>
+
+                            <label
+                              htmlFor="plugin"
+                              className="improvements-label"
+                            >
+                              <input
+                                type="checkbox"
+                                name="plugin"
+                                value="plugin"
+                                checked={check5}
+                                onClick={pluginImprover}
+                              />
+                              <p>Reducing the amount of plug-ins</p>
+                            </label>
+
+                            <label
+                              htmlFor="theme"
+                              className="improvements-label"
+                            >
+                              <input
+                                type="checkbox"
+                                name="theme"
+                                value="theme"
+                                checked={check6}
+                                onClick={themeImprover}
+                              />
+                              <p>
+                                Removing unused themes and picking a light
+                                weight theme
+                              </p>
+                            </label>
+
+                            <label
+                              htmlFor="caching"
+                              className="improvements-label"
+                            >
+                              <input
+                                type="checkbox"
+                                name="caching"
+                                value="caching"
+                                checked={check7}
+                                onClick={cachingImprover}
+                              />
+                              <p>Enable advanced caching </p>
+                            </label>
+
+                            <label
+                              htmlFor="hosting"
+                              className="improvements-label"
+                            >
+                              <input
+                                type="checkbox"
+                                name="hosting"
+                                value="hosting"
+                                checked={check8}
+                                onClick={hostingImprover}
+                              />
+                              <p>Switch hosting provider</p>
+                            </label>
+                          </div>
+
+                          <div className="wordpress-chart">
+                            <ChartVertical
+                              chartScore1={
+                                score1 >= 100 ? 100 : score1 < 0 ? 0 : score1
+                              }
+                              chartScore2={
+                                score2 >= 100 ? 100 : score2 < 0 ? 0 : score2
+                              }
+                              chartScore3={
+                                score3 >= 100 ? 100 : score3 < 0 ? 0 : score3
+                              }
+                              chartScore4={
+                                score4 >= 100 ? 100 : score4 < 0 ? 0 : score4
+                              }
+                              chartScore5={
+                                score5 >= 100 ? 100 : score5 < 0 ? 0 : score5
+                              }
+                            />
+                          </div>
+                        </div>
+                      </>
+                    }
+                  />
+                </div>
+              </>
+            </>
+          )}
         </>
       }
     />

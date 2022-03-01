@@ -8,12 +8,8 @@ import axios from "axios";
 import Results from "../Results/Results";
 import { HashLink as Link } from "react-router-hash-link";
 
-
-
 function Input() {
-
-
-
+  const APIkey = "";
 
   //error states
   const [invalidUrl, setInvalidUrl] = useState(false);
@@ -36,11 +32,10 @@ function Input() {
   //misc states
   const [formSubmit, setFormSubmit] = useState(false);
   const [disableForm, setDisableForm] = useState(false);
-  const [loadingText, setLoadingText] = useState(false)
-  const [formButton, setFormbutton] = useState(false)
-  const [showResultClick, setShowResultClick] = useState(false)
-  const [blur, setBlur] = useState({ filter: "blur(0px)" })
-
+  const [loadingText, setLoadingText] = useState(false);
+  const [formButton, setFormbutton] = useState(false);
+  const [showResultClick, setShowResultClick] = useState(false);
+  const [blur, setBlur] = useState({ filter: "blur(0px)" });
 
   // form functions
   function inputHandler(e) {
@@ -55,172 +50,155 @@ function Input() {
       input3.length === 0 ||
       input4.length === 0 ||
       input5.length === 0
-    )
-    {
+    ) {
       setEmptyDomain(true);
-    }
-
-    else {
+    } else {
       invalidUrlChecker();
     }
   }
 
   function invalidUrlChecker() {
     if (
-      input1.includes('https') ||
-      input2.includes('https') ||
-      input3.includes('https') ||
-      input4.includes('https') ||
-      input5.includes('https')
-    )
-    {
+      input1.includes("https") ||
+      input2.includes("https") ||
+      input3.includes("https") ||
+      input4.includes("https") ||
+      input5.includes("https")
+    ) {
       setInvalidUrl(true);
-    }
-   else {
-    setFormSubmit(true);
-    setDisableForm(true);
-    setBlur({ filter: "blur(2px)" })
-    setLoadingText(true)
-    console.log("FORM SUBMITTED🤖👍");
+    } else {
+      setFormSubmit(true);
+      setDisableForm(true);
+      setBlur({ filter: "blur(2px)" });
+      setLoadingText(true);
+      console.log("FORM SUBMITTED🤖👍");
     }
   }
 
-
-
-
-
-
-
   //async API calls within useEffect
-  useEffect(
-      ()=>{
-        const source = axios.CancelToken.source();
+  //de API key is hier later weer toegevoegd, op Github is een versie met environment variables gepusht.
+  useEffect(() => {
+    const source = axios.CancelToken.source();
 
-        //1: API get request
-        async function googleFetch1() {
-          const httpsInput1 = "https://www." + input1;
+    //1: API get request
+    async function googleFetch1() {
+      const httpsInput1 = "https://www." + input1;
 
-          try {
-            const result = await axios.get(
-                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput1}&key=${process.env.REACT_APP_API_KEY}`, {cancelToken: source.token}
-            );
+      try {
+        const result = await axios.get(
+          `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput1}&key=${APIkey}`,
+          { cancelToken: source.token }
+        );
 
-            setScore1(
-                result.data.lighthouseResult.categories.performance.score * 100
-            );
-          } catch (e) {
-            console.log("error");
-          }
-        }
+        setScore1(
+          result.data.lighthouseResult.categories.performance.score * 100
+        );
+      } catch (e) {
+        console.log("error");
+      }
+    }
 
-        //2: API get request
-        async function googleFetch2() {
-          const httpsInput2 = "https://www." + input2;
+    //2: API get request
+    async function googleFetch2() {
+      const httpsInput2 = "https://www." + input2;
 
-          try {
-            const result = await axios.get(
-                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput2}&key=${process.env.REACT_APP_API_KEY}`, {cancelToken: source.token}
-            );
+      try {
+        const result = await axios.get(
+          `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput2}&key=${APIkey}`,
+          { cancelToken: source.token }
+        );
 
-            setScore2(
-                result.data.lighthouseResult.categories.performance.score * 100
-            );
-          } catch (e) {
-            console.log("error");
-          }
-        }
+        setScore2(
+          result.data.lighthouseResult.categories.performance.score * 100
+        );
+      } catch (e) {
+        console.log("error");
+      }
+    }
 
-        //3: API get request
-        async function googleFetch3() {
-          const httpsInput3 = "https://www." + input3;
-          try {
-            const result = await axios.get(
-                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput3}&key=${process.env.REACT_APP_API_KEY}`, {cancelToken: source.token}
-            );
+    //3: API get request
+    async function googleFetch3() {
+      const httpsInput3 = "https://www." + input3;
+      try {
+        const result = await axios.get(
+          `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput3}&key=${APIkey}`,
+          { cancelToken: source.token }
+        );
 
-            setScore3(
-                result.data.lighthouseResult.categories.performance.score * 100
-            );
-          } catch (e) {
-            console.log("error");
-          }
-        }
+        setScore3(
+          result.data.lighthouseResult.categories.performance.score * 100
+        );
+      } catch (e) {
+        console.log("error");
+      }
+    }
 
-        //4: API get request
-        async function googleFetch4() {
-          const httpsInput4 = "https://www." + input4;
-          try {
-            const result = await axios.get(
-                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput4}&key=${process.env.REACT_APP_API_KEY}`,{cancelToken: source.token},
-            );
+    //4: API get request
+    async function googleFetch4() {
+      const httpsInput4 = "https://www." + input4;
+      try {
+        const result = await axios.get(
+          `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput4}&key=${APIkey}`,
+          { cancelToken: source.token }
+        );
 
-            setScore4(
-                result.data.lighthouseResult.categories.performance.score * 100
-            );
-          } catch (e) {
-            console.log("error");
-          }
-        }
+        setScore4(
+          result.data.lighthouseResult.categories.performance.score * 100
+        );
+      } catch (e) {
+        console.log("error");
+      }
+    }
 
-        //5: API get request
-        async function googleFetch5() {
-          const httpsInput5 = "https://www." + input5;
-          try {
-            const result = await axios.get(
-                `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput5}&key=${process.env.REACT_APP_API_KEY}`,{cancelToken: source.token}
-            );
+    //5: API get request
+    async function googleFetch5() {
+      const httpsInput5 = "https://www." + input5;
+      try {
+        const result = await axios.get(
+          `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=${httpsInput5}&key=${APIkey}`,
+          { cancelToken: source.token }
+        );
 
-            setScore5(
-                result.data.lighthouseResult.categories.performance.score * 100
-            );
-          } catch (e) {
-            console.log("error");
-          }
-        }
+        setScore5(
+          result.data.lighthouseResult.categories.performance.score * 100
+        );
+      } catch (e) {
+        console.log("error");
+      }
+    }
 
-
-        if (formSubmit===true)
-        {
-          googleFetch1();
-          googleFetch2();
-          googleFetch3();
-          googleFetch4();
-          googleFetch5();
-        }
-        return function cleanup() {
-          source.cancel();
-        }
-        }
-      ,[input1, input2, input3, input4, input5, formSubmit])
+    if (formSubmit === true) {
+      googleFetch1();
+      googleFetch2();
+      googleFetch3();
+      googleFetch4();
+      googleFetch5();
+    }
+    return function cleanup() {
+      source.cancel();
+    };
+  }, [input1, input2, input3, input4, input5, formSubmit]);
 
   //if scores are in:
   // unblurring the form again,
   // form is no longer disabled and
   // loading text is removed
-useEffect(()=>{
-  if (score1 > 0 || score2 > 0 ||  score3 > 0 || score4 > 0 || score5 > 0)
-  {
-    setDisableForm(false);
-    setBlur({ filter: "blur(0px)" })
-    setLoadingText(false)
-    setFormbutton(true)
-  }
-
-}, [score1, score2, score3, score4, score5])
-
-
+  useEffect(() => {
+    if (score1 > 0 || score2 > 0 || score3 > 0 || score4 > 0 || score5 > 0) {
+      setDisableForm(false);
+      setBlur({ filter: "blur(0px)" });
+      setLoadingText(false);
+      setFormbutton(true);
+    }
+  }, [score1, score2, score3, score4, score5]);
 
   //changes the button back to 'run test' after 5 seconds
-  useEffect( ()=>{
+  useEffect(() => {
     if (showResultClick)
       setInterval(() => {
-        setFormbutton(false)
+        setFormbutton(false);
       }, 5000);
-      },[showResultClick])
-
-
-
-
+  }, [showResultClick]);
 
   return (
     <>
@@ -373,12 +351,9 @@ useEffect(()=>{
               </fieldset>
             </div>
             {loadingText ? (
-
-                <p><b>"Loading... This might take up to 20 seconds</b></p>
-
-
-
-
+              <p>
+                <b>"Loading... This might take up to 20 seconds</b>
+              </p>
             ) : (
               ""
             )}

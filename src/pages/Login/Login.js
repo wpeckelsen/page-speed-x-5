@@ -96,9 +96,19 @@ function Login() {
 
             <div className="login-text">
               <p>
+                <Link
+                  to="/login"
+                  onClick={() => {
+                    setForgot(!forgot);
+                  }}
+                >
+                  Forgot your username/password?{" "}
+                </Link>
+              </p>
+              {forgot ? <p>Damn that's unfortunate. 🤡</p> : ""}
+              <p>
                 Don't have an account yet? <Link to="/signup">Sign up</Link>
               </p>
-
             </div>
           </>
         }

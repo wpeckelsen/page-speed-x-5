@@ -1,31 +1,30 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PageCardWide from "../../components/PageCard/PageCardWide";
 import Button from "../../components/Button/Button";
 import "./Account.scss";
 import TextCard from "../../components/TextCard/TextCard";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import {AuthContext} from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
-
-
-function Account(props) {
+function Account() {
   const [account, setAccount] = useState({});
   const { user } = useContext(AuthContext);
 
-
-  useEffect( ()=>{
+  useEffect(() => {
     async function accountFetch() {
-      // haal de token uit de Local Storage om in het GET-request te bewijzen dat we geauthoriseerd zijn
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
 
       try {
-        const result = await axios.get('https://frontend-educational-backend.herokuapp.com/api/user', {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const result = await axios.get(
+          "https://frontend-educational-backend.herokuapp.com/api/user",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setAccount(result.data);
       } catch (e) {
         console.error(e);
@@ -33,12 +32,16 @@ function Account(props) {
     }
 
     accountFetch();
-  }, [])
+  }, []);
 
   return (
     <PageCardWide
       title="My account"
-      subtitle={<span>Hello, <b>{user.username}</b></span>}
+      subtitle={
+        <span>
+          Hello, <b>{user.username}</b>
+        </span>
+      }
       content={
         <>
           <div className="account">
@@ -91,7 +94,6 @@ function Account(props) {
                     readOnly
                   />
                 </div>
-
               </div>
 
               <div className="user">
@@ -102,7 +104,7 @@ function Account(props) {
             </div>
 
             <div>
-              <h2>Username's Features</h2>
+              <h2>{user.username}'s Features</h2>
               <p>Jump to a feature of Page Speed x 5</p>
               <hr className="line" />
             </div>

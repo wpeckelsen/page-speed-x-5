@@ -17,12 +17,12 @@
   grid-template-rows: minmax(50px, auto);
 
   grid-template-areas:
-"a b 1"
-"c d 2"
-"e f 3"
-"g h 4"
-"i j 5"
-". k .";
+    "a b 1"
+    "c d 2"
+    "e f 3"
+    "g h 4"
+    "i j 5"
+    ". k .";
 }
 
 .grid-a {
@@ -123,5 +123,3 @@
   align-items: center;
   justify-content: flex-start;
 }
-
-

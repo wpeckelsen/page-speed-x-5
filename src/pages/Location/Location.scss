@@ -1,47 +1,41 @@
 @import "../../App.scss";
 
-
 .location-explained {
   background-color: white;
   width: 100%;
   box-shadow: $shadow-thin;
-  padding: 10px;}
+  padding: 10px;
+}
 
 .location {
   width: 100%;
 }
 
-.location>div {
+.location > div {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
-
-.server{
-
-
+.server {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   column-gap: 50px;
-
 }
 
-
-.location-label{
-display: flex;
+.location-label {
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   column-gap: 20px;
 }
 
-div>div{
+div > div {
   margin-bottom: 20px;
 }
 
-
-.result-squares{
+.result-squares {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -49,17 +43,18 @@ div>div{
   margin-top: 40px;
 }
 
-.button-row{  display: flex;
+.button-row {
+  display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;}
+  align-items: center;
+}
 
-.square-container{
+.square-container {
   max-width: 200px;
   max-height: 200px;
 }
 
-
-.calculated-score{
+.calculated-score {
   text-align: center;
 }

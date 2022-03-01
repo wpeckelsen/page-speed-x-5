@@ -3,12 +3,13 @@ import { Chart } from "react-google-charts";
 import "../../App.scss";
 import "./Chart.scss";
 
-function ChartComponent({ chartScore1, chartScore2, chartScore3, chartScore4, chartScore5 }) {
-
-
-
-
-
+function ChartComponent({
+  chartScore1,
+  chartScore2,
+  chartScore3,
+  chartScore4,
+  chartScore5,
+}) {
   const options = {
     fontName: "Open Sans",
     fontSize: 16,
@@ -33,20 +34,14 @@ function ChartComponent({ chartScore1, chartScore2, chartScore3, chartScore4, ch
     ["Domain 5", chartScore5, "#604791"],
   ];
 
-
-
-
-
   return (
-      <Chart
-          chartType="BarChart"
-          width="100%"
-          height="500px"
-          data={data}
-          options={options}
-
-      />
-
+    <Chart
+      chartType="BarChart"
+      width="100%"
+      height="500px"
+      data={data}
+      options={options}
+    />
   );
 }
 

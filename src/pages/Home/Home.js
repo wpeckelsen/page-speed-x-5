@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
 import { HashLink as Link } from "react-router-hash-link";
@@ -11,8 +10,6 @@ import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
 
 function Home() {
   const { isAuth } = useContext(AuthContext);
-
-  const history = useHistory();
 
   return (
     <>

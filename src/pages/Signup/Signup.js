@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import Button from "../../components/Button/Button";
 import { Link, useHistory } from "react-router-dom";
 import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
@@ -13,7 +12,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
   const [emailError, setEmailError] = useState(false);
-  const [forgot, setForgot]=useState(false)
+  const [forgot, setForgot] = useState(false);
 
   async function handleSignup(e) {
     e.preventDefault(e);
@@ -22,41 +21,29 @@ function Signup() {
       setPasswordError(true);
     }
 
-    if (
-        !email.includes("@")||
-        email.includes("," ) ||
-        email.includes("..")
-    )
-
-    {
+    if (!email.includes("@") || email.includes(",") || email.includes("..")) {
       setEmailError(true);
+    } else setEmailError(false);
+    setPasswordError(false);
+
+    try {
+      const result = await axios.post(
+        `https://frontend-educational-backend.herokuapp.com/api/auth/signup`,
+        {
+          email: email,
+          username: username,
+          password: password,
+          role: ["user"],
+        }
+      );
+
+      console.log(result);
+
+      history.push("/login");
+    } catch (e) {
+      console.error(e);
+      console.error(e.response.data);
     }
-
-    else
-      setEmailError(false)
-    setPasswordError(false)
-
-      try {
-        const result = await axios.post(
-          `https://frontend-educational-backend.herokuapp.com/api/auth/signup`,
-          {
-            email: email,
-            username: username,
-            password: password,
-            role: ["user"],
-          }
-        );
-
-        console.log(result);
-
-
-
-        history.push("/login");
-      } catch (e) {
-        console.error(e);
-        console.error(e.response.data);
-        //error state hierin zetten
-      }
   }
 
   return (
@@ -82,16 +69,11 @@ function Signup() {
           {emailError ? (
             <ErrorCard
               title="Invalid email"
-              content={
-                <p>
-               Your email seems to be incorrect.
-                </p>
-              }
+              content={<p>Your email seems to be incorrect.</p>}
             />
           ) : (
             ""
           )}
-
 
           <form className="page-form" onSubmit={handleSignup}>
             <div className="grid-a">
@@ -158,12 +140,12 @@ function Signup() {
           </form>
 
           <div className="login-text">
-
             <p>
-              <Link to="/signup"
-                    onClick={() => {
-                      setForgot(!forgot);
-                    }}
+              <Link
+                to="/signup"
+                onClick={() => {
+                  setForgot(!forgot);
+                }}
               >
                 Forgot your username/password?{" "}
               </Link>

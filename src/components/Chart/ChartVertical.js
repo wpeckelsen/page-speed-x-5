@@ -1,7 +1,13 @@
 import React from "react";
 import { Chart } from "react-google-charts";
 
-function ChartVertical({chartScore1, chartScore2, chartScore3, chartScore4, chartScore5}) {
+function ChartVertical({
+  chartScore1,
+  chartScore2,
+  chartScore3,
+  chartScore4,
+  chartScore5,
+}) {
   const data = [
     ["Domain name", "Speed Score", { role: "style" }],
     ["Domain 1", chartScore1, "#EF6461"],
@@ -27,7 +33,6 @@ function ChartVertical({chartScore1, chartScore2, chartScore3, chartScore4, char
       minValue: 0,
       maxValue: 100,
     },
-
   };
 
   return (

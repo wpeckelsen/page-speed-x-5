@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 import "../../App.scss";
 import { HashLink as Link } from "react-router-hash-link";
 import ChartComponent from "../../components/Chart/Chart";
-import ErrorCard from "../../components/ErrorCard/ErrorCard";
 import Improvements from "../Improvements/Improvements";
 import Location from "../Location/Location";
 import "../../App.scss";
