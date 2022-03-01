@@ -5,11 +5,13 @@ _This project was bootstrapped with [Create React App](https://github.com/facebo
 ## What does this application do?
 
 This application makes use of the
-[Google PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started).
+[Google PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started). This Google service allows you to
+fill in a domain name, after which Google will test the loading time of the website and give a report back.
 
-A user can fill in five domain names simultaneously, 
+In this application a user can fill in five domain names simultaneously,
 after which the application sends five GET requests to the Google PageSpeed Insights API. The results of this GET request in turn
-populate a [Google Chart](https://developers.google.com/chart/interactive/docs).
+populate a [Google Chart](https://developers.google.com/chart/interactive/docs). Whereas Google PageSpeed Insights allows
+users to only run a test on one domain at a time, this application allows users to test five simultaneously.
 
 
 

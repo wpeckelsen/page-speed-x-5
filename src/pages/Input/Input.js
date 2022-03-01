@@ -5,10 +5,9 @@ import "/Users/wessel/WebstormProjects/pagespeedx5/src/components/Form/Form.scss
 import PageCardNarrow from "../../components/PageCard/PageCardNarrow";
 import ErrorCard from "../../components/ErrorCard/ErrorCard";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 import Results from "../Results/Results";
 import { HashLink as Link } from "react-router-hash-link";
-import { Dots } from 'loading-animations-react';
+
 
 
 function Input() {
